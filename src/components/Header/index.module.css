@@ -71,13 +71,81 @@
   margin-left: 8px;
 }
 
+.menuButton {
+  display: none;
+  padding: 4px 8px;
+}
+
+.desktopActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobileNavLink:hover {
+  color: #1890ff;
+}
+
+.mobileSearch {
+  margin-top: 8px;
+}
+
 @media (max-width: 768px) {
   .nav {
     display: none;
   }
   
+  .menuButton {
+    display: inline-flex;
+  }
+  
+  .desktopActions {
+    display: none;
+  }
+  
   .search {
-    width: 120px;
-    margin: 0 12px;
+    width: 100px;
+    margin: 0 8px;
+  }
+  
+  .logo {
+    margin-right: 12px;
+  }
+  
+  .logoText {
+    font-size: 16px;
+  }
+  
+  .actions {
+    gap: 8px;
+  }
+  
+  .avatar {
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    display: none;
+  }
+  
+  .logoText {
+    font-size: 15px;
   }
 }
