@@ -68,7 +68,7 @@ const Home: React.FC = () => {
           </h1>
           <p className={styles.subtitle}>
             未来人才网是一个让年轻人分享想法、展示才华、连接机会的平台。
-            在这里，每个想法都值得被看见，每个人才都能发光发热。
+            在这里，每个想法都值得被看见。
           </p>
           <Space size={16}>
             <Button type="primary" size="large" onClick={() => navigate('/ideas')}>
