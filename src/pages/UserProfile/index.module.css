@@ -1,0 +1,84 @@
+.profile {
+  padding-bottom: 48px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.sidebar {
+  text-align: center;
+}
+
+.avatarSection {
+  padding: 24px 0;
+}
+
+.avatarSection .ant-avatar {
+  margin-bottom: 16px;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.bio {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.tags {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.followBtn {
+  margin-top: 8px;
+}
+
+.stats {
+  padding: 16px 0;
+}
+
+.stats .ant-statistic {
+  text-align: center;
+}
+
+.stats .ant-statistic-title {
+  font-size: 12px;
+  color: #999;
+}
+
+.stats .ant-statistic-content {
+  font-size: 20px;
+}
+
+.content {
+  min-height: 400px;
+}
+
+.pagination {
+  text-align: center;
+  padding-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .avatarSection {
+    padding: 12px 0;
+  }
+  
+  .avatarSection .ant-avatar {
+    width: 80px;
+    height: 80px;
+  }
+}

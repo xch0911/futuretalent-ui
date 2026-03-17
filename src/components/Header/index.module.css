@@ -1,0 +1,83 @@
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 !important;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 48px;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1890ff;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+}
+
+.navLink {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 64px;
+  padding: 0 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.navLink:hover {
+  color: #1890ff;
+}
+
+.active {
+  color: #1890ff;
+  border-bottom-color: #1890ff;
+}
+
+.search {
+  width: 240px;
+  margin: 0 24px;
+}
+
+.searchInput {
+  border-radius: 20px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  
+  .search {
+    width: 120px;
+    margin: 0 12px;
+  }
+}

@@ -1,0 +1,85 @@
+.ideas {
+  padding-bottom: 48px;
+}
+
+.filterCard {
+  margin-bottom: 24px;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+}
+
+.stats {
+  font-size: 14px;
+  color: #999;
+}
+
+.pagination {
+  text-align: center;
+  padding-top: 16px;
+}
+
+.sideCard {
+  margin-bottom: 24px;
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tagItem {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tagItem:hover {
+  background-color: #e6f7ff;
+  color: #1890ff;
+}
+
+.tagItem.active {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tips li {
+  font-size: 14px;
+  color: #666;
+  line-height: 2;
+}
+
+@media (max-width: 768px) {
+  .filterBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

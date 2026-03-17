@@ -1,0 +1,90 @@
+.card {
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.author:hover .authorName {
+  color: #1890ff;
+}
+
+.authorName {
+  font-size: 14px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.time {
+  font-size: 12px;
+  color: #999;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.content {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.tags {
+  margin-bottom: 12px;
+}
+
+.tag {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tag:hover {
+  background-color: #e6f7ff;
+  border-color: #1890ff;
+  color: #1890ff;
+}
+
+.footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.stat:hover {
+  color: #1890ff;
+}
+
+.liked {
+  color: #ff4d4f;
+}
+
+.count {
+  line-height: 1;
+}

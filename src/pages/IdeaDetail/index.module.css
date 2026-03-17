@@ -1,0 +1,107 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+
+.empty {
+  text-align: center;
+  padding: 100px 0;
+  color: #999;
+  font-size: 16px;
+}
+
+.ideaCard {
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.authorName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+}
+
+.time {
+  font-size: 12px;
+  color: #999;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.tags {
+  margin-bottom: 16px;
+}
+
+.content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.content p {
+  margin-bottom: 16px;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.footer {
+  padding-top: 8px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  font-size: 14px;
+}
+
+.commentsCard {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.commentInput {
+  margin-bottom: 16px;
+}
+
+.commentActions {
+  text-align: right;
+  margin-top: 12px;
+}
+
+.commentTime {
+  color: #999;
+  font-size: 12px;
+}
