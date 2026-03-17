@@ -4,8 +4,11 @@ import { Card, Avatar, Tag, Space } from 'antd'
 import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined } from '@ant-design/icons'
 import { Idea } from '@/types'
 import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import styles from './index.module.css'
 import 'dayjs/locale/zh-cn'
+
+dayjs.extend(relativeTime)
 
 interface IdeaCardProps {
   idea: Idea

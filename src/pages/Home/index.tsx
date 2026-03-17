@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Row, Col, Button, Card, Statistic, List, Tag, Space } from 'antd'
+import { Row, Col, Button, Card, Statistic, Tag, Space } from 'antd'
 import { UserOutlined, BulbOutlined, TeamOutlined } from '@ant-design/icons'
 import { Idea } from '@/types'
 import { getHotTags } from '@/services/user'
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
     navigate(`/ideas?tag=${encodeURIComponent(tag)}`)
   }
 
-  const handleLike = async (ideaId: string) => {
+  const handleLike = async () => {
     // TODO: 实现点赞逻辑
   }
 

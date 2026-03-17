@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, Form, Input, Tag, Button, message, Row, Col } from 'antd'
-import { PlusOutlined, CloseOutlined } from '@ant-design/icons'
+import { PlusOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
 import { createIdea } from '@/services/idea'
 
@@ -114,7 +114,11 @@ const IdeaCreate: React.FC = () => {
                   value={inputValue}
                   onChange={handleInputChange}
                   onBlur={handleInputConfirm}
-                  onPressEnter={handleInputConfirm}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      handleInputConfirm()
+                    }
+                  }}
                   className={styles.tagInput}
                   autoFocus
                   placeholder="输入后回车"

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic } from 'antd'
-import { UserOutlined, FollowOutlined, BulbOutlined } from '@ant-design/icons'
+import { UserOutlined, UserAddOutlined, BulbOutlined } from '@ant-design/icons'
 import { User, Idea } from '@/types'
 import { getUserInfo, getUserIdeas, followUser, unfollowUser } from '@/services/user'
 import IdeaCard from '@/components/IdeaCard'
@@ -9,7 +9,6 @@ import styles from './index.module.css'
 
 const UserProfile: React.FC = () => {
   const { userId } = useParams<{ userId: string }>()
-  const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const [userInfo, setUserInfo] = useState<User | null>(null)
   const [ideas, setIdeas] = useState<Idea[]>([])
@@ -97,7 +96,7 @@ const UserProfile: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleLike = async (ideaId: string) => {
+  const handleLike = async () => {
     // TODO: 实现点赞逻辑
   }
 
@@ -148,7 +147,7 @@ const UserProfile: React.FC = () => {
                   <Statistic title="想法" value={userInfo.ideaCount} prefix={<BulbOutlined />} />
                 </Col>
                 <Col span={8}>
-                  <Statistic title="关注者" value={userInfo.followerCount} prefix={<FollowOutlined />} />
+                  <Statistic title="关注者" value={userInfo.followerCount} prefix={<UserAddOutlined />} />
                 </Col>
                 <Col span={8}>
                   <Statistic title="关注了" value={userInfo.followingCount} />

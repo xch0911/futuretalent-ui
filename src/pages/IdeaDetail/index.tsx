@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Card, Avatar, Tag, Button, Input, Comment, List, Space, Spin, message, Divider } from 'antd'
+import { Card, Avatar, Tag, Button, Input, List, Space, Spin, message, Divider } from 'antd'
 import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, UserOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import { Idea, Comment as CommentType } from '@/types'
 import { getIdeaDetail, likeIdea, unlikeIdea } from '@/services/idea'
 import { getComments, createComment } from '@/services/comment'
 import styles from './index.module.css'
+
+dayjs.extend(relativeTime)
 
 const { TextArea } = Input
 
@@ -196,26 +199,27 @@ const IdeaDetail: React.FC = () => {
           dataSource={comments}
           locale={{ emptyText: '暂无评论，来抢沙发吧' }}
           renderItem={(comment) => (
-            <Comment
-              author={<a onClick={() => navigate(`/user/${comment.author.id}`)}>{comment.author.nickname}</a>}
-              avatar={
-                <Avatar 
-                  src={comment.author.avatar} 
-                  icon={<UserOutlined />}
-                  onClick={() => navigate(`/user/${comment.author.id}`)}
-                  style={{ cursor: 'pointer' }}
-                />
-              }
-              content={<p>{comment.content}</p>}
-              datetime={
+            <div className={styles.commentItem}>
+              <div className={styles.commentHeader}>
+                <div className={styles.commentAuthor} onClick={() => navigate(`/user/${comment.author.id}`)}>
+                  <Avatar 
+                    size="small"
+                    src={comment.author.avatar} 
+                    icon={<UserOutlined />}
+                  />
+                  <span className={styles.authorName}>{comment.author.nickname}</span>
+                </div>
                 <span className={styles.commentTime}>{dayjs(comment.createdAt).fromNow()}</span>
-              }
-              actions={[
-                <span key="like">
+              </div>
+              <div className={styles.commentContent}>
+                <p>{comment.content}</p>
+              </div>
+              <div className={styles.commentActions}>
+                <span>
                   <LikeOutlined /> {comment.likeCount}
                 </span>
-              ]}
-            />
+              </div>
+            </div>
           )}
         />
       </Card>

@@ -101,7 +101,7 @@ const Ideas: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const handleLike = async (ideaId: string) => {
+  const handleLike = async () => {
     // TODO: 实现点赞逻辑
     // 可以乐观更新
   }

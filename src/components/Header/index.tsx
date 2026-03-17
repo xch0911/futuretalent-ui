@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Layout, Input, Button, Avatar, Dropdown, Space, MenuProps } from 'antd'
+import { Layout, Input, Button, Avatar, Dropdown, MenuProps } from 'antd'
 import { SearchOutlined, UserOutlined, PlusOutlined } from '@ant-design/icons'
+import { User } from '@/types'
 import styles from './index.module.css'
 
 const { Header: AntHeader } = Layout
@@ -12,13 +13,16 @@ const Header: React.FC = () => {
   const [searchText, setSearchText] = useState('')
 
   const isLoggedIn = false // TODO: 从状态管理获取登录状态
-  const userInfo = null // TODO: 从状态管理获取用户信息
+  const userInfo: User | null = null // TODO: 从状态管理获取用户信息
+
+  // 帮助 TypeScript 推断类型
+  const user = userInfo as User | null
 
   const items: MenuProps['items'] = [
     {
       key: 'profile',
       label: '个人主页',
-      onClick: () => navigate(`/user/${userInfo?.id}`),
+      onClick: () => user && navigate(`/user/${user.id}`),
     },
     {
       key: 'my-ideas',
@@ -91,7 +95,7 @@ const Header: React.FC = () => {
                 <Dropdown menu={{ items }} placement="bottomRight">
                   <Avatar 
                     size="small"
-                    src={userInfo?.avatar}
+                    src={user ? user.avatar : undefined}
                     icon={<UserOutlined />}
                     className={styles.avatar}
                     style={{ cursor: 'pointer' }}
