@@ -26,5 +26,5 @@ export const unfollowUser = (userId: string): Promise<void> => {
 
 // 获取热门标签
 export const getHotTags = (): Promise<string[]> => {
-  return request.get('/tags/hot')
+  return request.get('/users/tags/hot')
 }
