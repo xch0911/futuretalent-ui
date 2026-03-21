@@ -7,7 +7,7 @@ import { User } from '@/types'
 import { updateUserProfile } from '@/services/user'
 import styles from './index.module.css'
 
-const { TextArea } = Input
+const { TextArea } = Input;
 
 const UserEdit: React.FC = () => {
   const navigate = useNavigate()
@@ -138,9 +138,9 @@ const UserEdit: React.FC = () => {
           </Card>
         </Col>
 
-        {/* 右侧：上方审核规则，下方成长体系 → 两个卡片总高度和左侧一致 */}
+        {/* 右侧：上方审核规则，下方成长体系 → 两个卡片总高度和左侧对齐 */}
         <Col xs={24} md={10}>
-          <Card title="📝 昵称 & 简介审核" className={styles.card}>
+          <Card title="📝 昵称 &amp; 简介审核" className={styles.card}>
             <div className={styles.guideSection}>
               <ul>
                 <li>禁止使用违法违规、色情暴力内容</li>
