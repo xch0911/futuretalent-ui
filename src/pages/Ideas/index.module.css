@@ -77,6 +77,10 @@
 }
 
 @media (max-width: 768px) {
+  .ideas {
+    padding-top: 0;
+  }
+  
   .filterBar {
     flex-direction: column;
     align-items: flex-start;
