@@ -69,96 +69,142 @@ const IdeaCreate: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <Card title="发布新想法" className={styles.card}>
-        <Form
-          form={form}
-          onFinish={onFinish}
-          layout="vertical"
-          size="large"
-        >
-          <Form.Item
-            name="title"
-            label="标题"
-            rules={[{ required: true, message: '请输入标题' }]}
-          >
-            <Input
-              placeholder="用一句话概括你的想法..."
-              maxLength={100}
-              showCount
-            />
-          </Form.Item>
-
-          <Form.Item
-            name="content"
-            label="内容"
-            rules={[{ required: true, message: '请输入内容' }]}
-          >
-            <TextArea
-              placeholder="详细描述你的想法、项目、疑问...欢迎分享任何有价值的内容"
-              rows={12}
-              showCount
-              maxLength={5000}
-            />
-          </Form.Item>
-
-          <Form.Item label="标签">
-            <div className={styles.tagContainer}>
-              {tags.map(tag => (
-                <Tag key={tag} closable onClose={() => handleRemoveTag(tag)}>
-                  {tag}
-                </Tag>
-              ))}
-              {inputVisible ? (
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={handleInputChange}
-                  onBlur={handleInputConfirm}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      handleInputConfirm()
-                    }
-                  }}
-                  className={styles.tagInput}
-                  autoFocus
-                  placeholder="输入后回车"
+      <Row gutter={[24, 24]}>
+        {/* 左侧：发布表单 */}
+        <Col xs={24} lg={16}>
+          <Card title="发布新想法" className={styles.card}>
+            <Form
+              form={form}
+              onFinish={onFinish}
+              layout="vertical"
+              size="large"
+            >
+              <Form.Item
+                name="title"
+                label="标题"
+                rules={[{ required: true, message: '请输入标题' }]}
+              >
+                <Input
+                  placeholder="用一句话概括你的想法..."
+                  maxLength={100}
+                  showCount
                 />
-              ) : (
-                <Tag 
-                  className={styles.addTag} 
-                  onClick={() => setInputVisible(true)}
-                >
-                  <PlusOutlined /> 添加标签
-                </Tag>
-              )}
-            </div>
-            <div className={styles.tip}>最多添加 5 个标签，方便他人发现你的想法</div>
-          </Form.Item>
+              </Form.Item>
 
-          <Form.Item>
-            <Row gutter={16}>
-              <Col span={12}>
-                <Button 
-                  onClick={() => navigate(-1)} 
-                  block
-                >
-                  取消
-                </Button>
-              </Col>
-              <Col span={12}>
-                <Button 
-                  type="primary" 
-                  htmlType="submit" 
-                  loading={loading}
-                  block
-                >
-                  发布想法
-                </Button>
-              </Col>
-            </Row>
-          </Form.Item>
-        </Form>
-      </Card>
+              <Form.Item
+                name="content"
+                label="内容"
+                rules={[{ required: true, message: '请输入内容' }]}
+              >
+                <TextArea
+                  placeholder="详细描述你的想法、项目、疑问...欢迎分享任何有价值的内容"
+                  rows={12}
+                  showCount
+                  maxLength={5000}
+                />
+              </Form.Item>
+
+              <Form.Item label="标签">
+                <div className={styles.tagContainer}>
+                  {tags.map(tag => (
+                    <Tag key={tag} closable onClose={() => handleRemoveTag(tag)}>
+                      {tag}
+                    </Tag>
+                  ))}
+                  {inputVisible ? (
+                    <input
+                      type="text"
+                      value={inputValue}
+                      onChange={handleInputChange}
+                      onBlur={handleInputConfirm}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          handleInputConfirm()
+                        }
+                      }}
+                      className={styles.tagInput}
+                      autoFocus
+                      placeholder="输入后回车"
+                    />
+                  ) : (
+                    <Tag 
+                      className={styles.addTag} 
+                      onClick={() => setInputVisible(true)}
+                    >
+                      <PlusOutlined /> 添加标签
+                    </Tag>
+                  )}
+                </div>
+                <div className={styles.tip}>最多添加 5 个标签，方便他人发现你的想法</div>
+              </Form.Item>
+
+              <Form.Item>
+                <Row gutter={16}>
+                  <Col span={12}>
+                    <Button 
+                      onClick={() => navigate(-1)} 
+                      block
+                    >
+                      取消
+                    </Button>
+                  </Col>
+                  <Col span={12}>
+                    <Button 
+                      type="primary" 
+                      htmlType="submit" 
+                      loading={loading}
+                      block
+                    >
+                      发布想法
+                    </Button>
+                  </Col>
+                </Row>
+              </Form.Item>
+            </Form>
+          </Card>
+        </Col>
+
+        {/* 右侧：内容指南 */}
+        <Col xs={24} lg={8}>
+          <Card title="📝 内容发布指南" className={styles.card}>
+            <div className={styles.guideSection}>
+              <h4>✅ 鼓励发布</h4>
+              <ul>
+                <li>💡 你的创新想法、创业点子</li>
+                <li>🛠 开源项目、工具分享</li>
+                <li>🎨 设计作品、创意展示</li>
+                <li>❓ 技术疑问、行业讨论</li>
+                <li>📚 学习笔记、经验总结</li>
+                <li>🤝 寻找合作伙伴、组队招募</li>
+              </ul>
+            </div>
+
+            <div className={styles.guideSection}>
+              <h4>❌ 禁止发布</h4>
+              <ul>
+                <li>📛 违法违规、色情暴力内容</li>
+                <li>📛 广告推广、 spam 刷屏</li>
+                <li>📛 侵权盗用他人内容</li>
+                <li>📛 人身攻击、辱骂诽谤</li>
+                <li>📛 政治敏感、迷信诈骗</li>
+              </ul>
+              <p className={styles.warning}>
+                违规内容会被 AI 审核自动拦截，严重违规会封禁账号。
+              </p>
+            </div>
+
+            <div className={styles.guideSection}>
+              <h4>💡 发布小技巧</h4>
+              <ul>
+                <li>标题简洁清晰，让人一眼知道你的想法</li>
+                <li>内容详细具体，方便他人理解</li>
+                <li>添加准确标签，更容易被找到</li>
+                <li>配上截图，问题描述更清晰</li>
+              </ul>
+            </div>
+          </Card>
+        </Col>
+      </Row>
     </div>
   )
 }

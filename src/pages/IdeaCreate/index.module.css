@@ -16,6 +16,7 @@
 
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  height: 100%;
 }
 
 .tagContainer {
@@ -41,4 +42,39 @@
   font-size: 12px;
   color: #999;
   margin-top: 8px;
+}
+
+.guideSection {
+  margin-bottom: 24px;
+}
+
+.guideSection:last-child {
+  margin-bottom: 0;
+}
+
+.guideSection h4 {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.guideSection ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.guideSection li {
+  margin-bottom: 8px;
+  line-height: 1.8;
+  color: #666;
+}
+
+.warning {
+  margin: 12px 0 0 0;
+  padding: 12px;
+  background: #fff1f0;
+  border-radius: 4px;
+  color: #cf1322;
+  line-height: 1.6;
 }

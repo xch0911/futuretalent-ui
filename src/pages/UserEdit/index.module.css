@@ -1,7 +1,8 @@
 .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding-top: 24px;
+  padding-bottom: 48px;
 }
 
 .loading {
@@ -13,19 +14,17 @@
 
 .card {
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
 }
 
 .avatarCol {
-  display: flex;
-  justify-content: center;
+  padding-bottom: 0;
 }
 
 .avatarWrapper {
   text-align: center;
-}
-
-.avatarWrapper .ant-avatar {
-  margin-bottom: 16px;
+  padding: 24px 0;
 }
 
 .changeAvatarBtn {
@@ -34,6 +33,7 @@
 
 .formItem {
   margin-bottom: 24px;
+  padding: 0 12px;
 }
 
 .label {
@@ -46,4 +46,84 @@
 .actions {
   margin-top: 32px;
   text-align: right;
+  padding: 0 12px 12px 24px;
+}
+
+.guideSection {
+  padding: 8px 4px;
+}
+
+.guideSection:last-child {
+  padding-bottom: 12px;
+}
+
+.guideSection h4 {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.guideSection ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.guideSection li {
+  margin-bottom: 8px;
+  line-height: 1.8;
+  color: #666;
+}
+
+.growthCard {
+  margin-bottom: 0;
+}
+
+.tip {
+  margin: 12px 0 0 0;
+  color: #999;
+  font-style: italic;
+}
+
+/* 移动端优化 - 参照个人主页 */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 32px;
+  }
+  
+  .avatarWrapper {
+    padding: 16px 0;
+  }
+
+  .avatarWrapper .ant-avatar {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 36px;
+  }
+  
+  .formItem {
+    padding: 0;
+  }
+
+  .actions {
+    margin-top: 24px;
+    text-align: center;
+    padding: 0 0 16px;
+  }
+  
+  .actions button {
+    width: 100%;
+  }
+  
+  .guideSection h4 {
+    font-size: 15px;
+  }
+  
+  .guideSection li {
+    font-size: 14px;
+  }
 }

@@ -3,122 +3,74 @@
   min-height: calc(100vh - 200px);
 }
 
-.card {
-  width: 100%;
-  border-radius: 8px;
-}
-
 .hero {
   background: linear-gradient(135deg, #1677ff 0%, #0958d9 100%);
   color: #fff;
   text-align: center;
   padding: 60px 20px;
+  border-radius: 8px;
 }
 
-.hero .icon {
-  font-size: 64px;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.hero .title {
+.title {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 16px;
 }
 
-.hero .subtitle {
+.subtitle {
   font-size: 20px;
   opacity: 0.9;
 }
 
-/* 确保表单卡片宽度与 container 一致 */
-.formCard {
+.card {
   height: 100%;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
-.formCard :global(.ant-form-item-label > label) {
-  font-weight: 500;
+.uploadTip {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
 }
 
-.formCard :global(.ant-upload-list-picture-card .ant-upload-list-item) {
-  margin: 0 8px 8px 0;
+.guideSection {
+  margin-bottom: 24px;
 }
 
-.formCard :global(.ant-upload-list-picture-card .ant-upload) {
-  width: 100px;
-  height: 100px;
+.guideSection:last-child {
+  margin-bottom: 0;
 }
 
-.tipCard {
-  height: 100%;
-}
-
-.tipCard h4 {
+.guideSection h4 {
   font-size: 16px;
   color: #333;
-  margin: 20px 0 12px;
+  margin: 0 0 12px 0;
+  font-weight: 600;
 }
 
-.tipCard h4:first-child {
-  margin-top: 0;
-}
-
-.list {
+.guideSection ul {
   padding-left: 20px;
-  margin: 12px 0;
+  margin: 0;
 }
 
-.list li {
-  margin-bottom: 16px;
-  line-height: 1.6;
+.guideSection li {
+  margin-bottom: 8px;
+  line-height: 1.8;
   color: #666;
 }
 
-.list li strong {
-  color: #333;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.list li p {
-  margin: 4px 0 0 0;
+.guideSection p {
+  line-height: 1.8;
   color: #666;
-}
-
-.list ol {
-  padding-left: 20px;
-}
-
-.contact {
-  margin-top: 24px;
-  padding: 16px;
-  background: #f0f5ff;
-  border-radius: 8px;
-}
-
-.contact h4 {
-  margin-top: 0;
-}
-
-.contact p {
-  margin: 8px 0;
-  color: #666;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .hero .icon {
-    font-size: 48px;
-  }
-  
-  .hero .title {
+  .title {
     font-size: 32px;
   }
   
-  .hero .subtitle {
+  .subtitle {
     font-size: 16px;
   }
 }

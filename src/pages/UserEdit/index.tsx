@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, Button, Input, Avatar, Row, Col, Spin, message, Tag, Space } from 'antd'
-import { UserOutlined, CameraOutlined } from '@ant-design/icons'
+import { Card, Button, Input, Avatar, Row, Col, Spin, message } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
+import AvatarUpload from '@/components/AvatarUpload'
 import { User } from '@/types'
 import { updateUserProfile } from '@/services/user'
 import styles from './index.module.css'
@@ -15,8 +16,6 @@ const UserEdit: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [nickname, setNickname] = useState('')
   const [bio, setBio] = useState('')
-  const [tags, setTags] = useState<string[]>([])
-  const [newTag, setNewTag] = useState('')
 
   // 加载当前用户信息
   useEffect(() => {
@@ -27,7 +26,6 @@ const UserEdit: React.FC = () => {
         setCurrentUser(userData)
         setNickname(userData.nickname || '')
         setBio(userData.bio || '')
-        setTags(userData.tags || [])
       } catch (e) {
         console.error('解析用户信息失败', e)
         message.error('请先登录')
@@ -38,22 +36,6 @@ const UserEdit: React.FC = () => {
       navigate('/login')
     }
   }, [navigate])
-
-  const handleAddTag = () => {
-    if (!newTag.trim()) return
-    if (tags.length >= 5) {
-      message.warning('最多只能添加 5 个标签')
-      return
-    }
-    if (!tags.includes(newTag.trim())) {
-      setTags([...tags, newTag.trim()])
-    }
-    setNewTag('')
-  }
-
-  const handleRemoveTag = (tag: string) => {
-    setTags(tags.filter(t => t !== tag))
-  }
 
   const handleSubmit = async () => {
     if (!currentUser) return
@@ -67,7 +49,7 @@ const UserEdit: React.FC = () => {
       await updateUserProfile(String(currentUser.id), {
         nickname: nickname.trim(),
         bio: bio.trim(),
-        tags,
+        tags: [],
       })
 
       // 更新本地存储
@@ -75,7 +57,7 @@ const UserEdit: React.FC = () => {
         ...currentUser,
         nickname: nickname.trim(),
         bio: bio.trim(),
-        tags,
+        tags: [],
       }
       localStorage.setItem('user', JSON.stringify(updatedUser))
       message.success('更新成功')
@@ -100,24 +82,33 @@ const UserEdit: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <Card title="编辑个人信息" className={styles.card}>
-        <Row gutter={[24, 24]}>
-          <Col xs={24} md={8} className={styles.avatarCol}>
-            <div className={styles.avatarWrapper}>
-              <Avatar size={180} src={currentUser?.avatar} icon={<UserOutlined />} />
-              <Button
-                type="primary"
-                size="small"
-                icon={<CameraOutlined />}
-                className={styles.changeAvatarBtn}
-                onClick={() => message.info('更换头像功能开发中...')}
-              >
-                更换头像
-              </Button>
+      <Row gutter={[24, 24]}>
+        {/* 左侧：头像 + 表单 */}
+        <Col xs={24} md={14}>
+          <Card className={styles.card}>
+            <div className={styles.avatarCol}>
+              <div className={styles.avatarWrapper}>
+                {currentUser && (
+                  <AvatarUpload
+                    userId={String(currentUser.id)}
+                    currentAvatar={currentUser.avatar}
+                    onUploadSuccess={(avatarUrl) => {
+                      // 更新本地用户信息
+                      if (currentUser) {
+                        const updatedUser = {
+                          ...currentUser,
+                          avatar: avatarUrl,
+                        }
+                        setCurrentUser(updatedUser)
+                        localStorage.setItem('user', JSON.stringify(updatedUser))
+                        message.success('头像更新成功')
+                      }
+                    }}
+                  />
+                )}
+              </div>
             </div>
-          </Col>
 
-          <Col xs={24} md={16}>
             <div className={styles.formItem}>
               <label className={styles.label}>昵称</label>
               <Input
@@ -139,45 +130,41 @@ const UserEdit: React.FC = () => {
               />
             </div>
 
-            <div className={styles.formItem}>
-              <label className={styles.label}>兴趣标签（最多 5 个）</label>
-              <Space wrap style={{ marginBottom: 8 }}>
-                {tags.map(tag => (
-                  <Tag
-                    key={tag}
-                    closable
-                    onClose={() => handleRemoveTag(tag)}
-                  >
-                    {tag}
-                  </Tag>
-                ))}
-              </Space>
-              <Input.Group compact>
-                <Input
-                  placeholder="输入标签后回车添加"
-                  value={newTag}
-                  onChange={(e) => setNewTag(e.target.value)}
-                  onPressEnter={handleAddTag}
-                  style={{ width: 200 }}
-                />
-                <Button onClick={handleAddTag}>添加</Button>
-              </Input.Group>
-            </div>
-
             <div className={styles.actions}>
-              <Button onClick={() => navigate(-1)}>取消</Button>
-              <Button
-                type="primary"
-                loading={submitting}
-                onClick={handleSubmit}
-                style={{ marginLeft: 8 }}
-              >
+              <Button type="primary" loading={submitting} onClick={handleSubmit}>
                 保存修改
               </Button>
             </div>
-          </Col>
-        </Row>
-      </Card>
+          </Card>
+        </Col>
+
+        {/* 右侧：上方审核规则，下方成长体系 → 两个卡片总高度和左侧一致 */}
+        <Col xs={24} md={10}>
+          <Card title="📝 昵称 & 简介审核" className={styles.card}>
+            <div className={styles.guideSection}>
+              <ul>
+                <li>禁止使用违法违规、色情暴力内容</li>
+                <li>禁止包含广告推广、导流联系方式</li>
+                <li>禁止侮辱诽谤他人、侵犯他人权益</li>
+                <li>AI+人工双重审核，违规内容会被要求修改</li>
+              </ul>
+            </div>
+          </Card>
+
+          <Card title="🌱 个人成长评价体系" className={[styles.card, styles.growthCard]}>
+            <div className={styles.guideSection}>
+              <ul>
+                <li>优质内容获得点赞收藏，增加成长值</li>
+                <li>发布优质想法，获得曝光提升成长等级</li>
+                <li>违规内容被举报核实，扣除成长值</li>
+                <li>等级越高，发布内容获得的曝光越多</li>
+                <li>成长等级会陆续开放更多功能特权</li>
+              </ul>
+              <p className={styles.tip}>成长体系正在逐步完善，敬请期待...</p>
+            </div>
+          </Card>
+        </Col>
+      </Row>
     </div>
   )
 }
