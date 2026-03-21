@@ -10,6 +10,7 @@
 /* 移动端边距 */
 @media (max-width: 768px) {
   .container {
+    padding-top: 0;
     padding-left: 20px;
     padding-right: 20px;
   }

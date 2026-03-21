@@ -72,7 +72,7 @@
 
 @media (max-width: 768px) {
   .feedback {
-    padding-top: 24px;
+    padding-top: 0;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 48px;

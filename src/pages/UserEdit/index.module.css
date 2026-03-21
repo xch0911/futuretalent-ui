@@ -88,7 +88,7 @@
 /* 移动端优化 - 参照个人主页 */
 @media (max-width: 768px) {
   .container {
-    padding-top: 24px;
+    padding-top: 0;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 48px;
