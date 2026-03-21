@@ -5,8 +5,14 @@ import Ideas from './pages/Ideas'
 import IdeaDetail from './pages/IdeaDetail'
 import IdeaCreate from './pages/IdeaCreate'
 import UserProfile from './pages/UserProfile'
+import UserEdit from './pages/UserEdit'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import About from './pages/About'
+import FAQ from './pages/FAQ'
+import Feedback from './pages/Feedback'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -18,8 +24,17 @@ function App() {
         <Route path="/idea/create" element={<IdeaCreate />} />
         <Route path="/idea/:ideaId" element={<IdeaDetail />} />
         <Route path="/user/:userId" element={<UserProfile />} />
+        <Route path="/user/edit" element={<UserEdit />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        
+        {/* Footer 页面 */}
+        <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

@@ -1,0 +1,101 @@
+.faq {
+  padding: 24px 0 48px;
+  min-height: calc(100vh - 200px);
+}
+
+.hero {
+  background: linear-gradient(135deg, #1677ff 0%, #0958d9 100%);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero .icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.hero .title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.collapseCard {
+  /* 移除宽度限制，由外层 container 控制 */
+  width: 100%;
+  margin: 24px 0;
+}
+
+.collapseCard :global(.ant-collapse) {
+  border: none;
+}
+
+.collapseCard :global(.ant-collapse-item) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.collapseCard :global(.ant-collapse-header) {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 16px 0;
+}
+
+.collapseCard :global(.ant-collapse-content-box) {
+  padding: 0 0 16px 0;
+}
+
+.answer {
+  line-height: 1.8;
+  color: #666;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.contactCard {
+  /* 移除宽度限制，由外层 container 控制 */
+  width: 100%;
+  margin: 24px 0;
+  text-align: center;
+}
+
+.contactCard h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.contactCard p {
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.contactCard a {
+  color: #1677ff;
+  text-decoration: none;
+}
+
+.contactCard a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .hero .icon {
+    font-size: 48px;
+  }
+  
+  .hero .title {
+    font-size: 32px;
+  }
+  
+  .hero .subtitle {
+    font-size: 16px;
+  }
+}

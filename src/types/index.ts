@@ -1,14 +1,12 @@
-// 用户信息
+// 用户信息（精简版）
 export interface User {
   id: string
   nickname: string
   avatar: string
-  bio: string
-  tags: string[]
-  followerCount: number
-  followingCount: number
-  ideaCount: number
-  createdAt: string
+  bio?: string
+  followerCount?: number
+  followingCount?: number
+  ideaCount?: number
 }
 
 // 想法（帖子）
@@ -26,13 +24,14 @@ export interface Idea {
   isLiked: boolean
 }
 
-// 评论
+// 评论（精简版）
 export interface Comment {
-  id: string
+  id: string | number
   content: string
-  author: User
-  ideaId: string
-  parentId?: string
+  authorId: string | number
+  authorNickname: string
+  authorAvatar: string
+  parentId?: string | number
   replies: Comment[]
   likeCount: number
   createdAt: string

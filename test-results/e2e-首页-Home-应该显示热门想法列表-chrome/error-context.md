@@ -1,0 +1,117 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "未来人才网" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 未来人才网
+      - navigation [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "想法广场" [ref=e11] [cursor=pointer]:
+          - /url: /ideas
+      - generic [ref=e13]:
+        - img "search" [ref=e15]:
+          - img [ref=e16]
+        - textbox "搜索想法、用户..." [ref=e18]
+      - generic [ref=e20]:
+        - button "登 录" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 登 录
+        - button "注 册" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: 注 册
+  - main [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - heading "连接想法， 成就未来" [level=1] [ref=e30]:
+          - text: 连接想法，
+          - text: 成就未来
+        - paragraph [ref=e31]: 未来人才网是一个让年轻人分享想法、展示才华、连接机会的平台。 在这里，每个想法都值得被看见。
+        - generic [ref=e32]:
+          - button "浏览想法" [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]: 浏览想法
+          - button "加入我们" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: 加入我们
+      - generic [ref=e40]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: 注册用户
+          - generic [ref=e46]:
+            - img "user" [ref=e48]:
+              - img [ref=e49]
+            - generic [ref=e51]: "0"
+        - generic [ref=e55]:
+          - generic [ref=e56]: 分享想法
+          - generic [ref=e57]:
+            - img "bulb" [ref=e59]:
+              - img [ref=e60]
+            - generic [ref=e62]: "0"
+        - generic [ref=e66]:
+          - generic [ref=e67]: 用户连接
+          - generic [ref=e68]:
+            - img "team" [ref=e70]:
+              - img [ref=e71]
+            - generic [ref=e73]: "0"
+      - generic [ref=e74]:
+        - generic [ref=e76]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: 🔥 热门想法
+            - button "查看更多" [ref=e81] [cursor=pointer]:
+              - generic [ref=e82]: 查看更多
+          - list [ref=e86]:
+            - listitem [ref=e87]
+            - listitem [ref=e88]
+            - listitem [ref=e89]
+            - listitem [ref=e90]
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e95]: 🏷️ 热门标签
+            - generic [ref=e97]:
+              - generic [ref=e98] [cursor=pointer]: AI
+              - generic [ref=e99] [cursor=pointer]: 产品
+              - generic [ref=e100] [cursor=pointer]: 未来
+              - generic [ref=e101] [cursor=pointer]: web3
+              - generic [ref=e102] [cursor=pointer]: 元宇宙
+              - generic [ref=e103] [cursor=pointer]: 设计
+              - generic [ref=e104] [cursor=pointer]: 编程
+              - generic [ref=e105] [cursor=pointer]: 教育
+              - generic [ref=e106] [cursor=pointer]: 内容创作
+              - generic [ref=e107] [cursor=pointer]: DAO
+          - generic [ref=e108]:
+            - generic [ref=e111]: 💡 平台定位
+            - generic [ref=e112]:
+              - paragraph [ref=e113]: • 帮助年轻人展示个人想法和项目
+              - paragraph [ref=e114]: • 连接人才与机会，促进交流合作
+              - paragraph [ref=e115]: • 发现未来之星，孵化创新项目
+              - paragraph [ref=e116]: • 打造开放包容的青年人才社区
+  - contentinfo [ref=e117]:
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]: 未来人才网
+          - generic [ref=e122]: 连接想法，成就未来。让每个人才都能发光发热。
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: 产品
+            - link "关于我们" [ref=e126] [cursor=pointer]:
+              - /url: "#"
+            - link "使用指南" [ref=e127] [cursor=pointer]:
+              - /url: "#"
+            - link "常见问题" [ref=e128] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e129]:
+            - generic [ref=e130]: 联系我们
+            - link "反馈建议" [ref=e131] [cursor=pointer]:
+              - /url: "#"
+            - link "加入我们" [ref=e132] [cursor=pointer]:
+              - /url: "#"
+            - link "商务合作" [ref=e133] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e134]:
+            - generic [ref=e135]: 法律
+            - link "用户协议" [ref=e136] [cursor=pointer]:
+              - /url: "#"
+            - link "隐私政策" [ref=e137] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e138]: © 2026 FutureTalent. All rights reserved.
+```

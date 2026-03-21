@@ -1,7 +1,17 @@
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  /* 顶部与导航栏保持距离 */
+  padding-top: 24px;
   padding-bottom: 48px;
+}
+
+/* 移动端边距 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .card {

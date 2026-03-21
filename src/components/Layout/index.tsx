@@ -15,9 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <AntLayout className={styles.layout}>
       <Header />
       <Content className={styles.content}>
-        <div className="container">
-          {children}
-        </div>
+        {children}
       </Content>
       <Footer />
     </AntLayout>

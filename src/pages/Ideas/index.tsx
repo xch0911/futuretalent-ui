@@ -45,6 +45,7 @@ const Ideas: React.FC = () => {
       setHotTags(tags)
     } catch (error) {
       console.error('加载标签失败', error)
+      // 不显示错误提示，热门标签不是必需的
     }
   }
 
@@ -108,6 +109,7 @@ const Ideas: React.FC = () => {
 
   return (
     <div className={styles.ideas}>
+      <div className="container">
       <Row gutter={[24, 24]}>
         <Col xs={24} lg={16}>
           <Card className={styles.filterCard}>
@@ -186,6 +188,7 @@ const Ideas: React.FC = () => {
           </Card>
         </Col>
       </Row>
+      </div>
     </div>
   )
 }

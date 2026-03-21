@@ -1,0 +1,75 @@
+.about {
+  padding: 24px 0 48px;
+  min-height: calc(100vh - 200px);
+}
+
+.hero {
+  background: linear-gradient(135deg, #1677ff 0%, #0958d9 100%);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero .title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+/* 卡片宽度由外层 container 控制 */
+.card {
+  height: 100%;
+  width: 100%;
+}
+
+.card p {
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.list {
+  padding-left: 20px;
+  margin: 16px 0;
+}
+
+.list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.featureCard {
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.featureCard p {
+  color: #666;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .hero .title {
+    font-size: 32px;
+  }
+  
+  .hero .subtitle {
+    font-size: 16px;
+  }
+  
+  .statNumber {
+    font-size: 36px;
+  }
+}

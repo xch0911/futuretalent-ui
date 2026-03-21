@@ -1,0 +1,74 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "未来人才网" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 未来人才网
+      - navigation [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "想法广场" [ref=e11] [cursor=pointer]:
+          - /url: /ideas
+      - generic [ref=e13]:
+        - img "search" [ref=e15]:
+          - img [ref=e16]
+        - textbox "搜索想法、用户..." [ref=e18]
+      - generic [ref=e20]:
+        - button "登 录" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 登 录
+        - button "注 册" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: 注 册
+  - main [ref=e25]:
+    - generic [ref=e28]:
+      - generic [ref=e31]: 登录未来人才网
+      - generic [ref=e33]:
+        - generic [ref=e39]:
+          - img "user" [ref=e41]:
+            - img [ref=e42]
+          - textbox "邮箱地址" [ref=e44]
+        - generic [ref=e50]:
+          - img "lock" [ref=e52]:
+            - img [ref=e53]
+          - textbox "密码" [ref=e55]
+          - img "eye-invisible" [ref=e57] [cursor=pointer]:
+            - img [ref=e58]
+        - button "登 录" [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]: 登 录
+        - generic [ref=e68]:
+          - text: 还没有账号？
+          - link "立即注册" [ref=e69] [cursor=pointer]:
+            - /url: /register
+  - contentinfo [ref=e70]:
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]: 未来人才网
+          - generic [ref=e75]: 连接想法，成就未来。让每个人才都能发光发热。
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e78]: 产品
+            - link "关于我们" [ref=e79] [cursor=pointer]:
+              - /url: "#"
+            - link "使用指南" [ref=e80] [cursor=pointer]:
+              - /url: "#"
+            - link "常见问题" [ref=e81] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e82]:
+            - generic [ref=e83]: 联系我们
+            - link "反馈建议" [ref=e84] [cursor=pointer]:
+              - /url: "#"
+            - link "加入我们" [ref=e85] [cursor=pointer]:
+              - /url: "#"
+            - link "商务合作" [ref=e86] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e87]:
+            - generic [ref=e88]: 法律
+            - link "用户协议" [ref=e89] [cursor=pointer]:
+              - /url: "#"
+            - link "隐私政策" [ref=e90] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e91]: © 2026 FutureTalent. All rights reserved.
+```

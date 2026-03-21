@@ -10,7 +10,12 @@ export const getIdeaList = (params: {
   userId?: string
   sort?: 'latest' | 'hot'
 }): Promise<PaginationResponse<Idea>> => {
-  return request.get('/ideas', { params })
+  // 空字符串改成 undefined，这样 axios 不会拼接到 URL 中，后端才能得到 null
+  const cleanedParams: any = { ...params }
+  if (cleanedParams.keyword === '') cleanedParams.keyword = undefined
+  if (cleanedParams.tag === '') cleanedParams.tag = undefined
+  if (cleanedParams.userId === '') cleanedParams.userId = undefined
+  return request.get('/ideas', { params: cleanedParams })
 }
 
 // 获取想法详情

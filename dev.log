@@ -1,0 +1,13 @@
+
+> futuretalent-ui@1.0.0 dev
+> vite --host 0.0.0.0
+
+
+  VITE v5.4.21  ready in 295 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.25.11.157:3000/
+8:00:28 PM [vite] hmr update /src/pages/Ideas/index.tsx, /src/pages/Home/index.tsx, /src/pages/IdeaDetail/index.tsx, /src/pages/IdeaCreate/index.tsx
+8:11:18 PM [vite] hmr update /src/pages/Ideas/index.tsx, /src/pages/Home/index.tsx, /src/pages/UserProfile/index.tsx
+8:11:35 PM [vite] hmr update /src/pages/Home/index.tsx
+8:11:45 PM [vite] hmr update /src/pages/Home/index.tsx

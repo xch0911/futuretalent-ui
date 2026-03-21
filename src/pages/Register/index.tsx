@@ -29,7 +29,7 @@ const Register: React.FC = () => {
       navigate('/login')
     } catch (error) {
       console.error('注册失败', error)
-      message.error('注册失败，请重试')
+      // 不显示错误消息，request.ts 拦截器已经显示了具体错误
     } finally {
       setLoading(false)
     }

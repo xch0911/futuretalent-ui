@@ -7,7 +7,7 @@ export const getComments = (ideaId: string): Promise<Comment[]> => {
 }
 
 // 创建评论
-export const createComment = (ideaId: string, params: { content: string; parentId?: string }): Promise<Comment> => {
+export const createComment = (ideaId: string, params: { content: string; parentId?: string | number }): Promise<Comment> => {
   return request.post(`/ideas/${ideaId}/comments`, params)
 }
 
@@ -17,6 +17,6 @@ export const likeComment = (ideaId: string, commentId: string): Promise<void> =>
 }
 
 // 删除评论
-export const deleteComment = (ideaId: string, commentId: string): Promise<void> => {
-  return request.delete(`/ideas/${ideaId}/comments/${commentId}`)
+export const deleteComment = (commentId: string): Promise<void> => {
+  return request.delete(`/ideas/comments/${commentId}`)
 }

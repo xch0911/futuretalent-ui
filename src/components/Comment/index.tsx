@@ -1,8 +1,7 @@
-import React, { useState, useCallback } from 'react'
-import { Avatar, Button, Input, Modal, Popover } from 'antd'
+import React, { useState, useRef, useEffect } from 'react'
+import { Avatar, Button, Input, Modal, Popover, message } from 'antd'
 import { UserOutlined, RightOutlined, FlagOutlined, DeleteOutlined, DownOutlined, UpOutlined } from '@ant-design/icons'
 import { createReport } from '@/services/report'
-import { message } from 'antd'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { Comment as CommentType, User } from '@/types'
@@ -39,12 +38,13 @@ const Comment: React.FC<CommentProps> = ({
 }) => {
   const [replyContent, setReplyContent] = useState('')
   const [submitting, setSubmitting] = useState(false)
-  const [pressStartTime, setPressStartTime] = useState<number | null>(null)
   const [reportModalVisible, setReportModalVisible] = useState(false)
   const [reportDescription, setReportDescription] = useState('')
   const [reportSubmitting, setReportSubmitting] = useState(false)
   const [actionVisible, setActionVisible] = useState(false)
   const [showAllReplies, setShowAllReplies] = useState(false)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const popoverRef = useRef<HTMLDivElement>(null)
   const hasReplies = comment.replies && comment.replies.length > 0
   const hasMultipleReplies = comment.replies && comment.replies.length > 1
   const replyCount = comment.replies ? comment.replies.length : 0
@@ -52,36 +52,52 @@ const Comment: React.FC<CommentProps> = ({
   const isReplying = replyingTo?.id === comment.id
   const isAuthor = currentUser && comment.authorId.toString() === currentUser.id.toString()
 
-  // 长按实现：支持PC鼠标和手机触摸
-  const handleMouseDown = useCallback(() => {
-    setPressStartTime(Date.now())
-  }, [])
-
-  const handleMouseUp = useCallback(() => {
-    if (pressStartTime && Date.now() - pressStartTime >= 500) {
+  // 正确长按实现：定时器方案，完全手动控制，点击不会触发，只有长按超过500ms才弹出
+  const handlePressStart = () => {
+    timerRef.current = setTimeout(() => {
       setActionVisible(true)
+    }, 500)
+  }
+
+  const handlePressEnd = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+      timerRef.current = null
     }
-    setPressStartTime(null)
-  }, [pressStartTime])
+  }
 
-  const handleMouseLeave = useCallback(() => {
-    setPressStartTime(null)
-  }, [])
+  // 点击外部关闭弹窗 - 排除 Popover 自身内部点击
+  useEffect(() => {
+    if (!actionVisible) return
 
-  // 手机触摸长按
-  const handleTouchStart = useCallback(() => {
-    setPressStartTime(Date.now())
-  }, [])
-
-  const handleTouchEnd = useCallback(() => {
-    if (pressStartTime && Date.now() - pressStartTime >= 500) {
-      setActionVisible(true)
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      // 关键修复：如果点击的是 Popover 内部，不关闭
+      if (
+        popoverRef.current &&
+        !popoverRef.current.contains(e.target as Node) &&
+        // 排除 antd popover 自身的容器
+        !(e.target as Element)?.closest('.ant-popover')
+      ) {
+        setActionVisible(false)
+      }
     }
-    setPressStartTime(null)
-  }, [pressStartTime])
 
-  const handleTouchMove = useCallback(() => {
-    setPressStartTime(null)
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [actionVisible])
+
+  // 组件卸载清理定时器
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+    }
   }, [])
 
   const handleReplyClick = () => {
@@ -93,13 +109,24 @@ const Comment: React.FC<CommentProps> = ({
     onReply(comment)
   }
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
+    // 先关闭长按菜单
     setActionVisible(false)
-    try {
-      await onDelete(comment.id)
-    } catch (error) {
-      console.error('删除失败', error)
-    }
+
+    Modal.confirm({
+      title: '确认删除该评论？',
+      content: '删除后无法恢复，确定要删除吗？',
+      okText: '确认删除',
+      cancelText: '取消',
+      okType: 'danger',
+      onOk: async () => {
+        try {
+          await onDelete(comment.id)
+        } catch (err) {
+          console.error('删除失败', err)
+        }
+      },
+    })
   }
 
   const openReportModal = () => {
@@ -210,25 +237,26 @@ const Comment: React.FC<CommentProps> = ({
           )}
         </div>
 
-        <Popover
-          content={actionContent}
-          open={actionVisible}
-          onOpenChange={setActionVisible}
-          placement="bottomLeft"
-          trigger={['click']}
-        >
-          <div
-            className={styles.commentText}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            onTouchMove={handleTouchMove}
+        <div ref={popoverRef}>
+          <Popover
+            content={actionContent}
+            open={actionVisible}
+            placement="bottomLeft"
+            trigger={[]}
           >
-            {comment.content}
-          </div>
-        </Popover>
+            <div
+              className={styles.commentText}
+              onMouseDown={handlePressStart}
+              onMouseUp={handlePressEnd}
+              onMouseLeave={handlePressEnd}
+              onTouchStart={handlePressStart}
+              onTouchEnd={handlePressEnd}
+              onTouchMove={handlePressEnd}
+            >
+              {comment.content}
+            </div>
+          </Popover>
+        </div>
 
         <div className={styles.commentActions}>
           <span className={styles.commentTime}>{dayjs(comment.createdAt).fromNow()}</span>
@@ -267,7 +295,7 @@ const Comment: React.FC<CommentProps> = ({
         {/* 嵌套回复列表 - 只显示第一条，剩下的折叠 */}
         {hasReplies && (
           <div className={styles.replies}>
-            {(showAllReplies ? comment.replies : comment.replies.slice(0, 1)).map((reply) => (
+            {(showAllReplies ? comment.replies! : comment.replies!.slice(0, 1)).map((reply) => (
               <Comment
                 key={reply.id}
                 comment={reply}

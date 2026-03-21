@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState, useMemo } from 'react'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { Card, Avatar, Tag, Button, Input, Space, Spin, message, Divider, Modal, Row, Col } from 'antd'
 import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, UserOutlined, DeleteOutlined, FlagOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
@@ -18,6 +18,7 @@ const { TextArea } = Input
 const IdeaDetail: React.FC = () => {
   const { ideaId } = useParams<{ ideaId: string }>()
   const navigate = useNavigate()
+  const location = useLocation()
   const [loading, setLoading] = useState(true)
   const [idea, setIdea] = useState<Idea | null>(null)
   const [comments, setComments] = useState<CommentType[]>([])
@@ -143,8 +144,12 @@ const IdeaDetail: React.FC = () => {
     }
   }
 
-  // 检查是否是当前用户
-  const isCurrentUser = currentUser?.id.toString() === idea?.author.id.toString()
+  // 检查是否是当前用户，使用 useMemo 自动更新
+  const isCurrentUser = useMemo(() => {
+    return currentUser && idea 
+      ? currentUser.id.toString() === idea.author.id.toString()
+      : false
+  }, [currentUser, idea])
 
   const handleSubmitComment = async () => {
     if (!idea || !commentContent.trim()) return
@@ -199,7 +204,7 @@ const IdeaDetail: React.FC = () => {
   const handleReport = () => {
     if (!currentUser) {
       message.warning('请先登录')
-      navigate('/login')
+      navigate('/login', { state: { from: location.pathname } })
       return
     }
     setReportModalVisible(true)
@@ -216,7 +221,7 @@ const IdeaDetail: React.FC = () => {
       await createReport({
         reportType: 'other',
         targetType: 'idea',
-        targetId: Number(idea.id),
+        targetId: idea.id,
         description: reportDescription.trim(),
       })
       message.success('举报提交成功，我们会尽快处理')
@@ -297,7 +302,8 @@ const IdeaDetail: React.FC = () => {
             </Col>
             <Col xs={24} sm={12} md={8} lg={6} style={{ textAlign: 'right' }}>
               <Space size={8} align="middle">
-                {!isCurrentUser && currentUser && (
+                {/* 自己的内容不显示举报按钮 */}
+                {!isCurrentUser && (
                   <Button
                     danger
                     type="text"

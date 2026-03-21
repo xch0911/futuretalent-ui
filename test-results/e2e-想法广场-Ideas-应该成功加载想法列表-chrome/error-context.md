@@ -1,0 +1,353 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "未来人才网" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 未来人才网
+      - navigation [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "想法广场" [ref=e11] [cursor=pointer]:
+          - /url: /ideas
+      - generic [ref=e13]:
+        - img "search" [ref=e15]:
+          - img [ref=e16]
+        - textbox "搜索想法、用户..." [ref=e18]
+      - generic [ref=e20]:
+        - button "登 录" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 登 录
+        - button "注 册" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: 注 册
+  - main [ref=e25]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e32]:
+          - generic [ref=e35]:
+            - searchbox "搜索想法关键词..." [ref=e37]
+            - button "search" [ref=e40] [cursor=pointer]:
+              - img "search" [ref=e41]:
+                - img [ref=e42]
+          - generic [ref=e46]:
+            - generic [ref=e47]: 排序：
+            - generic [ref=e48] [cursor=pointer]:
+              - generic [ref=e50]:
+                - combobox [ref=e52]
+                - generic "最新发布" [ref=e53]
+              - generic:
+                - img:
+                  - img
+        - generic [ref=e55]:
+          - generic [ref=e57] [cursor=pointer]:
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - img [ref=e61]
+                - generic [ref=e62]: 长寿科学家
+              - generic [ref=e63]: 7 hours ago
+            - heading "衰老不是不可抗力，是疾病，可以治疗" [level=3] [ref=e64]
+            - paragraph [ref=e65]: 衰老不是不可抗力，是疾病，可以治疗
+            - generic [ref=e66]:
+              - generic [ref=e67]: 长寿
+              - generic [ref=e68]: 健康
+              - generic [ref=e69]: 生命科学
+            - generic [ref=e71]:
+              - generic [ref=e73]:
+                - img "like" [ref=e74]:
+                  - img [ref=e75]
+                - generic [ref=e77]: "89"
+              - generic [ref=e79]:
+                - img "comment" [ref=e80]:
+                  - img [ref=e81]
+                - generic [ref=e85]: "15"
+              - generic [ref=e87]:
+                - img "eye" [ref=e88]:
+                  - img [ref=e89]
+                - generic [ref=e91]: "647"
+          - generic [ref=e93] [cursor=pointer]:
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - img [ref=e97]
+                - generic [ref=e98]: DAO 治理者
+              - generic [ref=e99]: 7 hours ago
+            - heading "DAO 不是乌托邦，是新的公司组织形式" [level=3] [ref=e100]
+            - paragraph [ref=e101]: DAO 不是乌托邦，是新的公司组织形式
+            - generic [ref=e102]:
+              - generic [ref=e103]: DAO
+              - generic [ref=e104]: web3
+              - generic [ref=e105]: 治理
+            - generic [ref=e107]:
+              - generic [ref=e109]:
+                - img "like" [ref=e110]:
+                  - img [ref=e111]
+                - generic [ref=e113]: "87"
+              - generic [ref=e115]:
+                - img "comment" [ref=e116]:
+                  - img [ref=e117]
+                - generic [ref=e121]: "14"
+              - generic [ref=e123]:
+                - img "eye" [ref=e124]:
+                  - img [ref=e125]
+                - generic [ref=e127]: "635"
+          - generic [ref=e129] [cursor=pointer]:
+            - generic [ref=e130]:
+              - generic [ref=e131]:
+                - img [ref=e133]
+                - generic [ref=e134]: 气候行动者
+              - generic [ref=e135]: 7 hours ago
+            - heading "技术能逆转气候变化，我们需要更多创新创业者" [level=3] [ref=e136]
+            - paragraph [ref=e137]: 技术能逆转气候变化，我们需要更多创新创业者
+            - generic [ref=e138]:
+              - generic [ref=e139]: 气候
+              - generic [ref=e140]: 环保
+              - generic [ref=e141]: 创业
+            - generic [ref=e143]:
+              - generic [ref=e145]:
+                - img "like" [ref=e146]:
+                  - img [ref=e147]
+                - generic [ref=e149]: "85"
+              - generic [ref=e151]:
+                - img "comment" [ref=e152]:
+                  - img [ref=e153]
+                - generic [ref=e157]: "14"
+              - generic [ref=e159]:
+                - img "eye" [ref=e160]:
+                  - img [ref=e161]
+                - generic [ref=e163]: "615"
+          - generic [ref=e165] [cursor=pointer]:
+            - generic [ref=e166]:
+              - generic [ref=e167]:
+                - img [ref=e169]
+                - generic [ref=e170]: 教育革新者
+              - generic [ref=e171]: 7 hours ago
+            - heading "AI 能做个性化学习路径，每个人节奏自己定" [level=3] [ref=e172]
+            - paragraph [ref=e173]: AI 能做个性化学习路径，每个人节奏自己定
+            - generic [ref=e174]:
+              - generic [ref=e175]: 教育
+              - generic [ref=e176]: AI
+            - generic [ref=e178]:
+              - generic [ref=e180]:
+                - img "like" [ref=e181]:
+                  - img [ref=e182]
+                - generic [ref=e184]: "83"
+              - generic [ref=e186]:
+                - img "comment" [ref=e187]:
+                  - img [ref=e188]
+                - generic [ref=e192]: "14"
+              - generic [ref=e194]:
+                - img "eye" [ref=e195]:
+                  - img [ref=e196]
+                - generic [ref=e198]: "601"
+          - generic [ref=e200] [cursor=pointer]:
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - img [ref=e204]
+                - generic [ref=e205]: 教育革新者
+              - generic [ref=e206]: 7 hours ago
+            - heading "未来教育不是灌输，是导航" [level=3] [ref=e207]
+            - paragraph [ref=e208]: 未来教育不是灌输，是导航
+            - generic [ref=e210]: 教育
+            - generic [ref=e212]:
+              - generic [ref=e214]:
+                - img "like" [ref=e215]:
+                  - img [ref=e216]
+                - generic [ref=e218]: "81"
+              - generic [ref=e220]:
+                - img "comment" [ref=e221]:
+                  - img [ref=e222]
+                - generic [ref=e226]: "13"
+              - generic [ref=e228]:
+                - img "eye" [ref=e229]:
+                  - img [ref=e230]
+                - generic [ref=e232]: "587"
+          - generic [ref=e234] [cursor=pointer]:
+            - generic [ref=e235]:
+              - generic [ref=e236]:
+                - img [ref=e238]
+                - generic [ref=e239]: 太空企业家
+              - generic [ref=e240]: 7 hours ago
+            - heading "私人航天已经起飞，未来小行星采矿不是梦" [level=3] [ref=e241]
+            - paragraph [ref=e242]: 私人航天已经起飞，未来小行星采矿不是梦
+            - generic [ref=e243]:
+              - generic [ref=e244]: 太空
+              - generic [ref=e245]: 科技
+              - generic [ref=e246]: 创业
+            - generic [ref=e248]:
+              - generic [ref=e250]:
+                - img "like" [ref=e251]:
+                  - img [ref=e252]
+                - generic [ref=e254]: "79"
+              - generic [ref=e256]:
+                - img "comment" [ref=e257]:
+                  - img [ref=e258]
+                - generic [ref=e262]: "13"
+              - generic [ref=e264]:
+                - img "eye" [ref=e265]:
+                  - img [ref=e266]
+                - generic [ref=e268]: "573"
+          - generic [ref=e270] [cursor=pointer]:
+            - generic [ref=e271]:
+              - generic [ref=e272]:
+                - img [ref=e274]
+                - generic [ref=e275]: 生物黑客
+              - generic [ref=e276]: 7 hours ago
+            - heading "我自己跟踪血糖、血压、睡眠，数据帮我调整生活方式，比医生还及时。自己身体自己掌握" [level=3] [ref=e277]
+            - paragraph [ref=e278]: 我自己跟踪血糖、血压、睡眠，数据帮我调整生活方式，比医生还及时。自己身体自己掌握
+            - generic [ref=e279]:
+              - generic [ref=e280]: 生物黑客
+              - generic [ref=e281]: 健康
+              - generic [ref=e282]: 生命科学
+            - generic [ref=e284]:
+              - generic [ref=e286]:
+                - img "like" [ref=e287]:
+                  - img [ref=e288]
+                - generic [ref=e290]: "77"
+              - generic [ref=e292]:
+                - img "comment" [ref=e293]:
+                  - img [ref=e294]
+                - generic [ref=e298]: "13"
+              - generic [ref=e300]:
+                - img "eye" [ref=e301]:
+                  - img [ref=e302]
+                - generic [ref=e304]: "559"
+          - generic [ref=e306] [cursor=pointer]:
+            - generic [ref=e307]:
+              - generic [ref=e308]:
+                - img [ref=e310]
+                - generic [ref=e311]: AI探索者
+              - generic [ref=e312]: 7 hours ago
+            - heading "测试" [level=3] [ref=e313]
+            - paragraph [ref=e314]: 测试内容
+            - generic [ref=e316]:
+              - generic [ref=e318]:
+                - img "like" [ref=e319]:
+                  - img [ref=e320]
+                - generic [ref=e322]: "1"
+              - generic [ref=e324]:
+                - img "comment" [ref=e325]:
+                  - img [ref=e326]
+                - generic [ref=e330]: "1"
+              - generic [ref=e332]:
+                - img "eye" [ref=e333]:
+                  - img [ref=e334]
+                - generic [ref=e336]: "1"
+          - generic [ref=e338] [cursor=pointer]:
+            - generic [ref=e339]:
+              - generic [ref=e340]:
+                - img [ref=e342]
+                - generic [ref=e343]: 社会观察者
+              - generic [ref=e344]: 7 hours ago
+            - heading "远程工作让人才流动变容易" [level=3] [ref=e345]
+            - paragraph [ref=e346]: 你不用搬家就能为全世界公司工作，地域限制打破了。这对小城市年轻人是天大机会
+            - generic [ref=e348]: 远程工作
+            - generic [ref=e350]:
+              - generic [ref=e352]:
+                - img "like" [ref=e353]:
+                  - img [ref=e354]
+                - generic [ref=e356]: "69"
+              - generic [ref=e358]:
+                - img "comment" [ref=e359]:
+                  - img [ref=e360]
+                - generic [ref=e364]: "11"
+              - generic [ref=e366]:
+                - img "eye" [ref=e367]:
+                  - img [ref=e368]
+                - generic [ref=e370]: "503"
+          - generic [ref=e372] [cursor=pointer]:
+            - generic [ref=e373]:
+              - generic [ref=e374]:
+                - img [ref=e376]
+                - generic [ref=e377]: 元宇宙设计师
+              - generic [ref=e378]: 7 hours ago
+            - heading "虚拟土地不是炒房，是未来城市" [level=3] [ref=e379]
+            - paragraph [ref=e380]: 你在上面建社区，建活动中心，建美术馆，这就是未来社会的雏形
+            - generic [ref=e381]:
+              - generic [ref=e382]: 元宇宙
+              - generic [ref=e383]: web3
+            - generic [ref=e385]:
+              - generic [ref=e387]:
+                - img "like" [ref=e388]:
+                  - img [ref=e389]
+                - generic [ref=e391]: "73"
+              - generic [ref=e393]:
+                - img "comment" [ref=e394]:
+                  - img [ref=e395]
+                - generic [ref=e399]: "12"
+              - generic [ref=e401]:
+                - img "eye" [ref=e402]:
+                  - img [ref=e403]
+                - generic [ref=e405]: "531"
+          - list [ref=e407]:
+            - listitem [ref=e408]: 共 43 条
+            - listitem "上一页" [ref=e409]:
+              - button "left" [disabled] [ref=e410]:
+                - img "left" [ref=e411]:
+                  - img [ref=e412]
+            - listitem "1" [ref=e414] [cursor=pointer]:
+              - generic [ref=e415]: "1"
+            - listitem "2" [ref=e416] [cursor=pointer]:
+              - generic [ref=e417]: "2"
+            - listitem "3" [ref=e418] [cursor=pointer]:
+              - generic [ref=e419]: "3"
+            - listitem "4" [ref=e420] [cursor=pointer]:
+              - generic [ref=e421]: "4"
+            - listitem "5" [ref=e422] [cursor=pointer]:
+              - generic [ref=e423]: "5"
+            - listitem "下一页" [ref=e424] [cursor=pointer]:
+              - button "right" [ref=e425]:
+                - img "right" [ref=e426]:
+                  - img [ref=e427]
+      - generic [ref=e429]:
+        - generic [ref=e430]:
+          - generic [ref=e433]: 🏷️ 热门标签
+          - generic [ref=e435]:
+            - generic [ref=e436] [cursor=pointer]: AI
+            - generic [ref=e437] [cursor=pointer]: 产品
+            - generic [ref=e438] [cursor=pointer]: 未来
+            - generic [ref=e439] [cursor=pointer]: web3
+            - generic [ref=e440] [cursor=pointer]: 元宇宙
+            - generic [ref=e441] [cursor=pointer]: 设计
+            - generic [ref=e442] [cursor=pointer]: 编程
+            - generic [ref=e443] [cursor=pointer]: 教育
+            - generic [ref=e444] [cursor=pointer]: 内容创作
+            - generic [ref=e445] [cursor=pointer]: DAO
+        - generic [ref=e446]:
+          - generic [ref=e449]: 💡 筛选提示
+          - list [ref=e451]:
+            - listitem [ref=e452]: • 在搜索框输入关键词搜索想法标题和内容
+            - listitem [ref=e453]: • 点击标签可以快速筛选对应主题的想法
+            - listitem [ref=e454]: • 支持按最新发布和热门优先排序
+            - listitem [ref=e455]: • 点击想法卡片可以查看详情和评论
+            - listitem [ref=e456]: • 点击作者头像可以进入用户主页
+  - contentinfo [ref=e457]:
+    - generic [ref=e458]:
+      - generic [ref=e459]:
+        - generic [ref=e460]:
+          - generic [ref=e461]: 未来人才网
+          - generic [ref=e462]: 连接想法，成就未来。让每个人才都能发光发热。
+        - generic [ref=e463]:
+          - generic [ref=e464]:
+            - generic [ref=e465]: 产品
+            - link "关于我们" [ref=e466] [cursor=pointer]:
+              - /url: "#"
+            - link "使用指南" [ref=e467] [cursor=pointer]:
+              - /url: "#"
+            - link "常见问题" [ref=e468] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e469]:
+            - generic [ref=e470]: 联系我们
+            - link "反馈建议" [ref=e471] [cursor=pointer]:
+              - /url: "#"
+            - link "加入我们" [ref=e472] [cursor=pointer]:
+              - /url: "#"
+            - link "商务合作" [ref=e473] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e474]:
+            - generic [ref=e475]: 法律
+            - link "用户协议" [ref=e476] [cursor=pointer]:
+              - /url: "#"
+            - link "隐私政策" [ref=e477] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e478]: © 2026 FutureTalent. All rights reserved.
+```

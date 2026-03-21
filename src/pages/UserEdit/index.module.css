@@ -1,0 +1,49 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.card {
+  border-radius: 8px;
+}
+
+.avatarCol {
+  display: flex;
+  justify-content: center;
+}
+
+.avatarWrapper {
+  text-align: center;
+}
+
+.avatarWrapper .ant-avatar {
+  margin-bottom: 16px;
+}
+
+.changeAvatarBtn {
+  margin-top: 8px;
+}
+
+.formItem {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.actions {
+  margin-top: 32px;
+  text-align: right;
+}

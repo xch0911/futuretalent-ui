@@ -1,0 +1,84 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "未来人才网" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 未来人才网
+      - navigation [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "想法广场" [ref=e11] [cursor=pointer]:
+          - /url: /ideas
+      - generic [ref=e13]:
+        - img "search" [ref=e15]:
+          - img [ref=e16]
+        - textbox "搜索想法、用户..." [ref=e18]
+      - generic [ref=e20]:
+        - button "登 录" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 登 录
+        - button "注 册" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: 注 册
+  - main [ref=e25]:
+    - generic [ref=e28]:
+      - generic [ref=e31]: 发布新想法
+      - generic [ref=e33]:
+        - generic [ref=e35]:
+          - generic "标题" [ref=e37]: "* 标题"
+          - generic [ref=e41]:
+            - textbox "* 标题" [ref=e42]:
+              - /placeholder: 用一句话概括你的想法...
+            - generic [ref=e44]: 0 / 100
+        - generic [ref=e46]:
+          - generic "内容" [ref=e48]: "* 内容"
+          - generic [ref=e52]:
+            - textbox "* 内容" [ref=e53]:
+              - /placeholder: 详细描述你的想法、项目、疑问...欢迎分享任何有价值的内容
+            - generic:
+              - generic: 0 / 5000
+        - generic [ref=e55]:
+          - generic "标签" [ref=e57]
+          - generic [ref=e60]:
+            - generic [ref=e62] [cursor=pointer]:
+              - img "plus" [ref=e63]:
+                - img [ref=e64]
+              - text: 添加标签
+            - generic [ref=e67]: 最多添加 5 个标签，方便他人发现你的想法
+        - generic [ref=e73]:
+          - button "取 消" [ref=e75] [cursor=pointer]:
+            - generic [ref=e76]: 取 消
+          - button "发布想法" [ref=e78] [cursor=pointer]:
+            - generic [ref=e79]: 发布想法
+  - contentinfo [ref=e80]:
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - generic [ref=e84]: 未来人才网
+          - generic [ref=e85]: 连接想法，成就未来。让每个人才都能发光发热。
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - generic [ref=e88]: 产品
+            - link "关于我们" [ref=e89] [cursor=pointer]:
+              - /url: "#"
+            - link "使用指南" [ref=e90] [cursor=pointer]:
+              - /url: "#"
+            - link "常见问题" [ref=e91] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e92]:
+            - generic [ref=e93]: 联系我们
+            - link "反馈建议" [ref=e94] [cursor=pointer]:
+              - /url: "#"
+            - link "加入我们" [ref=e95] [cursor=pointer]:
+              - /url: "#"
+            - link "商务合作" [ref=e96] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e97]:
+            - generic [ref=e98]: 法律
+            - link "用户协议" [ref=e99] [cursor=pointer]:
+              - /url: "#"
+            - link "隐私政策" [ref=e100] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e101]: © 2026 FutureTalent. All rights reserved.
+```

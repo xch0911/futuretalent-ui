@@ -1,5 +1,15 @@
-.profile {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
   padding-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .loading {

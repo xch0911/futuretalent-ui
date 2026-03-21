@@ -88,6 +88,43 @@
   gap: 16px;
 }
 
+/* 移动端用户信息区（合并后） */
+.mobileUserSection {
+  padding: 8px 0;
+}
+
+/* 移动端用户信息 - 横向排布（可点击） */
+.mobileUserInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin: -12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mobileUserInfo:hover {
+  background-color: #f5f5f5;
+}
+
+.mobileUserInfo .mobileUserName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+}
+
+.mobileSectionTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .mobileNavLink {
   display: block;
   padding: 12px 0;
@@ -103,6 +140,60 @@
 
 .mobileSearch {
   margin-top: 8px;
+}
+
+/* Footer 链接 */
+.mobileFooterLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileFooterLink {
+  display: block;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.mobileFooterLink:hover {
+  color: #1890ff;
+}
+
+/* 社交图标 */
+.mobileSocial {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 8px 0;
+}
+
+.mobileSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.mobileSocialLink:hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+/* 版权信息 */
+.mobileCopyright {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  padding: 8px 0;
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,76 @@
+.terms {
+  padding: 24px 0 48px;
+  min-height: calc(100vh - 200px);
+}
+
+.hero {
+  background: linear-gradient(135deg, #1677ff 0%, #0958d9 100%);
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 24px;
+}
+
+.hero .title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero .updateTime {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.content {
+  /* 移除宽度和 padding，由外层 container 控制 */
+  width: 100%;
+}
+
+.content :global(.ant-typography) {
+  color: #333;
+}
+
+.content :global(.ant-typography-title) {
+  color: #1677ff;
+  margin-top: 32px;
+}
+
+.content :global(.ant-typography-title):first-child {
+  margin-top: 0;
+}
+
+.content p {
+  line-height: 2;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.content .list {
+  padding-left: 24px;
+  background: #f0f5ff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+@media (max-width: 768px) {
+  .hero .title {
+    font-size: 32px;
+  }
+  
+  .hero .subtitle {
+    font-size: 16px;
+  }
+  
+  .content p {
+    line-height: 1.8;
+  }
+}

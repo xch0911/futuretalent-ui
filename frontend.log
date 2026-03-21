@@ -1,0 +1,78 @@
+
+> futuretalent-ui@1.0.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 410 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.25.11.157:3000/
+12:16:07 AM [vite] hmr update /src/pages/Home/index.tsx
+12:16:07 AM [vite] Internal server error: /home/admin/.openclaw/workspace/futuretalent-ui/src/pages/Home/index.tsx: Unterminated JSX contents. (191:10)
+
+  189 |         </Col>
+  190 |       </Row>
+> 191 |     </div>
+      |           ^
+  192 |   )
+  193 | }
+  194 |
+  Plugin: vite:react-babel
+  File: /home/admin/.openclaw/workspace/futuretalent-ui/src/pages/Home/index.tsx:191:10
+  189|          </Col>
+  190|        </Row>
+  191|      </div>
+     |            ^
+  192|    )
+  193|  }
+      at constructor (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:6599:19)
+      at TypeScriptParserMixin.jsxReadToken (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4448:20)
+      at TypeScriptParserMixin.getTokenFromCode (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4774:12)
+      at TypeScriptParserMixin.getTokenFromCode (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9987:11)
+      at TypeScriptParserMixin.nextToken (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:5782:10)
+      at TypeScriptParserMixin.next (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:5692:10)
+      at TypeScriptParserMixin.eat (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:5696:12)
+      at TypeScriptParserMixin.expect (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:6898:15)
+      at TypeScriptParserMixin.jsxParseClosingElementAt (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4680:10)
+      at TypeScriptParserMixin.jsxParseElementAt (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4695:37)
+      at TypeScriptParserMixin.jsxParseElementAt (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9837:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10831:21)
+      at /home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9775:39
+      at TypeScriptParserMixin.tryParse (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9775:18)
+      at /home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10800:39
+      at TypeScriptParserMixin.allowInAnd (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:12426:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10800:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:12493:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11675:28)
+      at TypeScriptParserMixin.parseExprAtom (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11331:23)
+      at TypeScriptParserMixin.parseExprAtom (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11081:23)
+      at TypeScriptParserMixin.parseUpdate (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11066:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:11046:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9837:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10899:61)
+      at TypeScriptParserMixin.parseExprOps (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10904:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10881:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10831:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9786:20)
+      at TypeScriptParserMixin.parseExpressionBase (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10784:23)
+      at /home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10780:39
+      at TypeScriptParserMixin.allowInAnd (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:12421:16)
+      at TypeScriptParserMixin.parseExpression (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:10780:17)
+      at TypeScriptParserMixin.parseReturnStatement (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:13142:28)
+      at TypeScriptParserMixin.parseStatementContent (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:12798:21)
+      at TypeScriptParserMixin.parseStatementContent (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:12767:17)
+      at TypeScriptParserMixin.parseStatementListItem (/home/admin/.openclaw/workspace/futuretalent-ui/node_modules/@babel/parser/lib/index.js:12747:17)
+12:16:20 AM [vite] hmr update /src/pages/Home/index.tsx

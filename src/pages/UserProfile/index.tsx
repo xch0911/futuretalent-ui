@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic } from 'antd'
-import { UserOutlined, UserAddOutlined, BulbOutlined } from '@ant-design/icons'
+import { useParams, useNavigate } from 'react-router-dom'
+import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic, message } from 'antd'
+import { UserOutlined, UserAddOutlined, BulbOutlined, EditOutlined } from '@ant-design/icons'
 import { User, Idea } from '@/types'
 import { getUserInfo, getUserIdeas, followUser, unfollowUser } from '@/services/user'
 import IdeaCard from '@/components/IdeaCard'
@@ -9,7 +9,9 @@ import styles from './index.module.css'
 
 const UserProfile: React.FC = () => {
   const { userId } = useParams<{ userId: string }>()
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
+  const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [userInfo, setUserInfo] = useState<User | null>(null)
   const [ideas, setIdeas] = useState<Idea[]>([])
   const [pagination, setPagination] = useState({
@@ -20,21 +22,47 @@ const UserProfile: React.FC = () => {
   const [followLoading, setFollowLoading] = useState(false)
   const [isFollowing, setIsFollowing] = useState(false) // TODO: 从接口获取
 
+  // 加载当前用户信息
+  useEffect(() => {
+    const userStr = localStorage.getItem('user')
+    if (userStr) {
+      try {
+        const userData = JSON.parse(userStr)
+        setCurrentUser(userData)
+      } catch (e) {
+        console.error('解析用户信息失败', e)
+      }
+    }
+  }, [])
+
+  // 判断是否是自己的主页
+  const isOwnProfile = currentUser && userInfo && currentUser.id.toString() === userInfo.id.toString()
+
   useEffect(() => {
     if (userId) {
-      loadUserInfo()
-      loadUserIdeas()
+      loadUserData()
     }
   }, [userId])
 
-  const loadUserInfo = async () => {
+  const loadUserData = async () => {
     if (!userId) return
     try {
       setLoading(true)
+      // 先加载用户信息，再加载想法
       const info = await getUserInfo(userId)
       setUserInfo(info)
+      const res = await getUserIdeas(userId, {
+        page: pagination.page,
+        pageSize: pagination.pageSize,
+      })
+      setIdeas(res.list)
+      setPagination({
+        ...pagination,
+        total: res.total,
+      })
     } catch (error) {
-      console.error('加载用户信息失败', error)
+      console.error('加载用户数据失败', error)
+      setUserInfo(null)
     } finally {
       setLoading(false)
     }
@@ -91,6 +119,10 @@ const UserProfile: React.FC = () => {
     }
   }
 
+  const handleEditProfile = () => {
+    navigate('/user/edit')
+  }
+
   const handlePageChange = (page: number) => {
     loadUserIdeas(page)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -100,7 +132,7 @@ const UserProfile: React.FC = () => {
     // TODO: 实现点赞逻辑
   }
 
-  if (loading && !userInfo) {
+  if (loading) {
     return (
       <div className={styles.loading}>
         <Spin size="large" />
@@ -113,7 +145,7 @@ const UserProfile: React.FC = () => {
   }
 
   return (
-    <div className={styles.profile}>
+    <div className={styles.container}>
       <Row gutter={[24, 24]}>
         <Col xs={24} md={8}>
           <Card className={styles.sidebar}>
@@ -121,22 +153,34 @@ const UserProfile: React.FC = () => {
               <Avatar size={120} src={userInfo.avatar} icon={<UserOutlined />} />
               <h1 className={styles.name}>{userInfo.nickname}</h1>
               <p className={styles.bio}>{userInfo.bio || '这个人很懒，什么都没写~'}</p>
-              {userInfo.tags.length > 0 && (
+              {userInfo.tags && userInfo.tags.length > 0 && (
                 <div className={styles.tags}>
                   {userInfo.tags.map(tag => (
                     <Tag key={tag}>{tag}</Tag>
                   ))}
                 </div>
               )}
-              <Button
-                type={isFollowing ? 'default' : 'primary'}
-                loading={followLoading}
-                onClick={handleFollow}
-                className={styles.followBtn}
-                block
-              >
-                {isFollowing ? '已关注' : '关注'}
-              </Button>
+              {isOwnProfile ? (
+                <Button
+                  type="primary"
+                  icon={<EditOutlined />}
+                  onClick={handleEditProfile}
+                  className={styles.followBtn}
+                  block
+                >
+                  编辑个人信息
+                </Button>
+              ) : (
+                <Button
+                  type={isFollowing ? 'default' : 'primary'}
+                  loading={followLoading}
+                  onClick={handleFollow}
+                  className={styles.followBtn}
+                  block
+                >
+                  {isFollowing ? '已关注' : '关注'}
+                </Button>
+              )}
             </div>
 
             <Divider />
@@ -178,9 +222,9 @@ const UserProfile: React.FC = () => {
                     />
                   </div>
                 </>
-              ) : !loading ? (
+              ) : (
                 <Empty description="这个人还没有发布任何想法" />
-              ) : null}
+              )}
             </Spin>
           </Card>
         </Col>

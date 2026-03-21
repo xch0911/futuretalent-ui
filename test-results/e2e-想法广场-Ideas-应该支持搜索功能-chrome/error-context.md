@@ -1,0 +1,81 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "未来人才网" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 未来人才网
+      - navigation [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "想法广场" [ref=e11] [cursor=pointer]:
+          - /url: /ideas
+      - generic [ref=e13]:
+        - img "search" [ref=e15]:
+          - img [ref=e16]
+        - textbox "搜索想法、用户..." [ref=e18]
+      - generic [ref=e20]:
+        - button "登 录" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 登 录
+        - button "注 册" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: 注 册
+  - main [ref=e25]:
+    - generic [ref=e28]:
+      - generic [ref=e32]:
+        - generic [ref=e35]:
+          - searchbox "搜索想法关键词..." [ref=e37]
+          - button "search" [ref=e40] [cursor=pointer]:
+            - img "search" [ref=e41]:
+              - img [ref=e42]
+        - generic [ref=e46]:
+          - generic [ref=e47]: 排序：
+          - generic [ref=e48] [cursor=pointer]:
+            - generic [ref=e50]:
+              - combobox [ref=e52]
+              - generic "最新发布" [ref=e53]
+            - generic:
+              - img:
+                - img
+      - generic [ref=e60]:
+        - generic [ref=e64]: 🏷️ 热门标签
+        - generic [ref=e66]:
+          - generic [ref=e69]: 💡 筛选提示
+          - list [ref=e71]:
+            - listitem [ref=e72]: • 在搜索框输入关键词搜索想法标题和内容
+            - listitem [ref=e73]: • 点击标签可以快速筛选对应主题的想法
+            - listitem [ref=e74]: • 支持按最新发布和热门优先排序
+            - listitem [ref=e75]: • 点击想法卡片可以查看详情和评论
+            - listitem [ref=e76]: • 点击作者头像可以进入用户主页
+  - contentinfo [ref=e77]:
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - generic [ref=e81]: 未来人才网
+          - generic [ref=e82]: 连接想法，成就未来。让每个人才都能发光发热。
+        - generic [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e85]: 产品
+            - link "关于我们" [ref=e86] [cursor=pointer]:
+              - /url: "#"
+            - link "使用指南" [ref=e87] [cursor=pointer]:
+              - /url: "#"
+            - link "常见问题" [ref=e88] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e89]:
+            - generic [ref=e90]: 联系我们
+            - link "反馈建议" [ref=e91] [cursor=pointer]:
+              - /url: "#"
+            - link "加入我们" [ref=e92] [cursor=pointer]:
+              - /url: "#"
+            - link "商务合作" [ref=e93] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e94]:
+            - generic [ref=e95]: 法律
+            - link "用户协议" [ref=e96] [cursor=pointer]:
+              - /url: "#"
+            - link "隐私政策" [ref=e97] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e98]: © 2026 FutureTalent. All rights reserved.
+```

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Card, Form, Input, Button, message } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
@@ -11,19 +11,27 @@ interface LoginForm {
 }
 
 const Login: React.FC = () => {
-  const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [form] = Form.useForm()
 
   const onFinish = async (values: LoginForm) => {
     try {
       setLoading(true)
-      await login(values)
+      const data = await login(values)
+      
+      // 保存 token 和用户信息到 localStorage
+      if (data.token && data.user) {
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('user', JSON.stringify(data.user))
+      }
+      
       message.success('登录成功')
-      navigate('/')
+      
+      // 跳转到首页
+      window.location.href = '/'
     } catch (error) {
       console.error('登录失败', error)
-      message.error('登录失败，请检查邮箱和密码')
+      // 不显示错误消息，request.ts 拦截器已经显示了具体错误
     } finally {
       setLoading(false)
     }

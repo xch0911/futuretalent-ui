@@ -1,0 +1,234 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "未来人才网" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e8]: 未来人才网
+      - navigation [ref=e9]:
+        - link "首页" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "想法广场" [ref=e11] [cursor=pointer]:
+          - /url: /ideas
+      - generic [ref=e13]:
+        - img "search" [ref=e15]:
+          - img [ref=e16]
+        - textbox "搜索想法、用户..." [ref=e18]
+      - generic [ref=e20]:
+        - button "登 录" [ref=e21] [cursor=pointer]:
+          - generic [ref=e22]: 登 录
+        - button "注 册" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: 注 册
+  - main [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - heading "连接想法， 成就未来" [level=1] [ref=e30]:
+          - text: 连接想法，
+          - text: 成就未来
+        - paragraph [ref=e31]: 未来人才网是一个让年轻人分享想法、展示才华、连接机会的平台。 在这里，每个想法都值得被看见。
+        - generic [ref=e32]:
+          - button "浏览想法" [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]: 浏览想法
+          - button "加入我们" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]: 加入我们
+      - generic [ref=e40]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: 注册用户
+          - generic [ref=e46]:
+            - img "user" [ref=e48]:
+              - img [ref=e49]
+            - generic [ref=e51]: "45"
+        - generic [ref=e55]:
+          - generic [ref=e56]: 分享想法
+          - generic [ref=e57]:
+            - img "bulb" [ref=e59]:
+              - img [ref=e60]
+            - generic [ref=e62]: "43"
+        - generic [ref=e66]:
+          - generic [ref=e67]: 用户连接
+          - generic [ref=e68]:
+            - img "team" [ref=e70]:
+              - img [ref=e71]
+            - generic [ref=e73]: "0"
+      - generic [ref=e74]:
+        - generic [ref=e76]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: 🔥 热门想法
+            - button "查看更多" [ref=e81] [cursor=pointer]:
+              - generic [ref=e82]: 查看更多
+          - generic [ref=e83]:
+            - generic [ref=e85] [cursor=pointer]:
+              - generic [ref=e86]:
+                - generic [ref=e87]:
+                  - img [ref=e89]
+                  - generic [ref=e90]: 长寿科学家
+                - generic [ref=e91]: 7 hours ago
+              - heading "衰老不是不可抗力，是疾病，可以治疗" [level=3] [ref=e92]
+              - paragraph [ref=e93]: 衰老不是不可抗力，是疾病，可以治疗
+              - generic [ref=e94]:
+                - generic [ref=e95]: 长寿
+                - generic [ref=e96]: 健康
+                - generic [ref=e97]: 生命科学
+              - generic [ref=e99]:
+                - generic [ref=e101]:
+                  - img "like" [ref=e102]:
+                    - img [ref=e103]
+                  - generic [ref=e105]: "89"
+                - generic [ref=e107]:
+                  - img "comment" [ref=e108]:
+                    - img [ref=e109]
+                  - generic [ref=e113]: "15"
+                - generic [ref=e115]:
+                  - img "eye" [ref=e116]:
+                    - img [ref=e117]
+                  - generic [ref=e119]: "647"
+            - generic [ref=e121] [cursor=pointer]:
+              - generic [ref=e122]:
+                - generic [ref=e123]:
+                  - img [ref=e125]
+                  - generic [ref=e126]: DAO 治理者
+                - generic [ref=e127]: 7 hours ago
+              - heading "DAO 不是乌托邦，是新的公司组织形式" [level=3] [ref=e128]
+              - paragraph [ref=e129]: DAO 不是乌托邦，是新的公司组织形式
+              - generic [ref=e130]:
+                - generic [ref=e131]: DAO
+                - generic [ref=e132]: web3
+                - generic [ref=e133]: 治理
+              - generic [ref=e135]:
+                - generic [ref=e137]:
+                  - img "like" [ref=e138]:
+                    - img [ref=e139]
+                  - generic [ref=e141]: "87"
+                - generic [ref=e143]:
+                  - img "comment" [ref=e144]:
+                    - img [ref=e145]
+                  - generic [ref=e149]: "14"
+                - generic [ref=e151]:
+                  - img "eye" [ref=e152]:
+                    - img [ref=e153]
+                  - generic [ref=e155]: "635"
+            - generic [ref=e157] [cursor=pointer]:
+              - generic [ref=e158]:
+                - generic [ref=e159]:
+                  - img [ref=e161]
+                  - generic [ref=e162]: 气候行动者
+                - generic [ref=e163]: 7 hours ago
+              - heading "技术能逆转气候变化，我们需要更多创新创业者" [level=3] [ref=e164]
+              - paragraph [ref=e165]: 技术能逆转气候变化，我们需要更多创新创业者
+              - generic [ref=e166]:
+                - generic [ref=e167]: 气候
+                - generic [ref=e168]: 环保
+                - generic [ref=e169]: 创业
+              - generic [ref=e171]:
+                - generic [ref=e173]:
+                  - img "like" [ref=e174]:
+                    - img [ref=e175]
+                  - generic [ref=e177]: "85"
+                - generic [ref=e179]:
+                  - img "comment" [ref=e180]:
+                    - img [ref=e181]
+                  - generic [ref=e185]: "14"
+                - generic [ref=e187]:
+                  - img "eye" [ref=e188]:
+                    - img [ref=e189]
+                  - generic [ref=e191]: "615"
+            - generic [ref=e193] [cursor=pointer]:
+              - generic [ref=e194]:
+                - generic [ref=e195]:
+                  - img [ref=e197]
+                  - generic [ref=e198]: 教育革新者
+                - generic [ref=e199]: 7 hours ago
+              - heading "AI 能做个性化学习路径，每个人节奏自己定" [level=3] [ref=e200]
+              - paragraph [ref=e201]: AI 能做个性化学习路径，每个人节奏自己定
+              - generic [ref=e202]:
+                - generic [ref=e203]: 教育
+                - generic [ref=e204]: AI
+              - generic [ref=e206]:
+                - generic [ref=e208]:
+                  - img "like" [ref=e209]:
+                    - img [ref=e210]
+                  - generic [ref=e212]: "83"
+                - generic [ref=e214]:
+                  - img "comment" [ref=e215]:
+                    - img [ref=e216]
+                  - generic [ref=e220]: "14"
+                - generic [ref=e222]:
+                  - img "eye" [ref=e223]:
+                    - img [ref=e224]
+                  - generic [ref=e226]: "601"
+            - generic [ref=e228] [cursor=pointer]:
+              - generic [ref=e229]:
+                - generic [ref=e230]:
+                  - img [ref=e232]
+                  - generic [ref=e233]: 教育革新者
+                - generic [ref=e234]: 7 hours ago
+              - heading "未来教育不是灌输，是导航" [level=3] [ref=e235]
+              - paragraph [ref=e236]: 未来教育不是灌输，是导航
+              - generic [ref=e238]: 教育
+              - generic [ref=e240]:
+                - generic [ref=e242]:
+                  - img "like" [ref=e243]:
+                    - img [ref=e244]
+                  - generic [ref=e246]: "81"
+                - generic [ref=e248]:
+                  - img "comment" [ref=e249]:
+                    - img [ref=e250]
+                  - generic [ref=e254]: "13"
+                - generic [ref=e256]:
+                  - img "eye" [ref=e257]:
+                    - img [ref=e258]
+                  - generic [ref=e260]: "587"
+        - generic [ref=e261]:
+          - generic [ref=e262]:
+            - generic [ref=e265]: 🏷️ 热门标签
+            - generic [ref=e267]:
+              - generic [ref=e268] [cursor=pointer]: AI
+              - generic [ref=e269] [cursor=pointer]: 产品
+              - generic [ref=e270] [cursor=pointer]: 未来
+              - generic [ref=e271] [cursor=pointer]: web3
+              - generic [ref=e272] [cursor=pointer]: 元宇宙
+              - generic [ref=e273] [cursor=pointer]: 设计
+              - generic [ref=e274] [cursor=pointer]: 编程
+              - generic [ref=e275] [cursor=pointer]: 教育
+              - generic [ref=e276] [cursor=pointer]: 内容创作
+              - generic [ref=e277] [cursor=pointer]: DAO
+          - generic [ref=e278]:
+            - generic [ref=e281]: 💡 平台定位
+            - generic [ref=e282]:
+              - paragraph [ref=e283]: • 帮助年轻人展示个人想法和项目
+              - paragraph [ref=e284]: • 连接人才与机会，促进交流合作
+              - paragraph [ref=e285]: • 发现未来之星，孵化创新项目
+              - paragraph [ref=e286]: • 打造开放包容的青年人才社区
+  - contentinfo [ref=e287]:
+    - generic [ref=e288]:
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - generic [ref=e291]: 未来人才网
+          - generic [ref=e292]: 连接想法，成就未来。让每个人才都能发光发热。
+        - generic [ref=e293]:
+          - generic [ref=e294]:
+            - generic [ref=e295]: 产品
+            - link "关于我们" [ref=e296] [cursor=pointer]:
+              - /url: "#"
+            - link "使用指南" [ref=e297] [cursor=pointer]:
+              - /url: "#"
+            - link "常见问题" [ref=e298] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e299]:
+            - generic [ref=e300]: 联系我们
+            - link "反馈建议" [ref=e301] [cursor=pointer]:
+              - /url: "#"
+            - link "加入我们" [ref=e302] [cursor=pointer]:
+              - /url: "#"
+            - link "商务合作" [ref=e303] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e304]:
+            - generic [ref=e305]: 法律
+            - link "用户协议" [ref=e306] [cursor=pointer]:
+              - /url: "#"
+            - link "隐私政策" [ref=e307] [cursor=pointer]:
+              - /url: "#"
+      - generic [ref=e308]: © 2026 FutureTalent. All rights reserved.
+```

@@ -4,6 +4,13 @@
   padding: 48px 0 24px;
 }
 
+/* 确保 Footer 内容区域与 Banner 宽度一致 */
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .content {
   display: flex;
   justify-content: space-between;
@@ -54,20 +61,41 @@
   color: #1890ff;
 }
 
+.social {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.socialLink:hover {
+  background-color: #1890ff;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 .copyright {
   text-align: center;
   padding-top: 24px;
+  margin-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   font-size: 14px;
 }
 
 @media (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    gap: 32px;
-  }
-  
-  .links {
-    gap: 32px;
+  .footer {
+    display: none;
   }
 }

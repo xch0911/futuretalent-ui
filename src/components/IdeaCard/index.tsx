@@ -24,7 +24,9 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, onLike }) => {
 
   const handleAuthorClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    navigate(`/user/${idea.author.id}`)
+    if (idea.author?.id) {
+      navigate(`/user/${idea.author.id}`)
+    }
   }
 
   const handleLikeClick = (e: React.MouseEvent) => {
@@ -40,8 +42,8 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, onLike }) => {
     >
       <div className={styles.header}>
         <div className={styles.author} onClick={handleAuthorClick}>
-          <Avatar size="small" src={idea.author.avatar} />
-          <span className={styles.authorName}>{idea.author.nickname}</span>
+          <Avatar size="small" src={idea.author?.avatar} />
+          <span className={styles.authorName}>{idea.author?.nickname || '未知用户'}</span>
         </div>
         <span className={styles.time}>{dayjs(idea.createdAt).fromNow()}</span>
       </div>

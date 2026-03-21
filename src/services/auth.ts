@@ -17,6 +17,7 @@ export interface AuthResponse {
     id: string
     nickname: string
     avatar: string
+    email: string
   }
 }
 
