@@ -1,4 +1,6 @@
 .faq {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 24px 0 48px;
   min-height: calc(100vh - 200px);
 }
@@ -8,6 +10,7 @@
   color: #fff;
   text-align: center;
   padding: 60px 20px;
+  border-radius: 8px;
 }
 
 .hero .icon {
@@ -87,6 +90,13 @@
 }
 
 @media (max-width: 768px) {
+  .faq {
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 48px;
+  }
+  
   .hero .icon {
     font-size: 48px;
   }

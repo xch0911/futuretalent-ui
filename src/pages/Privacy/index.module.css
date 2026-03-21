@@ -1,4 +1,6 @@
 .privacy {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 24px 0 48px;
   min-height: calc(100vh - 200px);
 }
@@ -9,6 +11,7 @@
   text-align: center;
   padding: 60px 20px;
   margin-bottom: 24px;
+  border-radius: 8px;
 }
 
 .hero .title {
@@ -63,6 +66,13 @@
 }
 
 @media (max-width: 768px) {
+  .privacy {
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 48px;
+  }
+  
   .hero .title {
     font-size: 32px;
   }
