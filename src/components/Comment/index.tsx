@@ -39,6 +39,7 @@ const Comment: React.FC<CommentProps> = ({
 }) => {
   const [replyContent, setReplyContent] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [pressStartTime, setPressStartTime] = useState<number | null>(null)
   const [reportModalVisible, setReportModalVisible] = useState(false)
   const [reportDescription, setReportDescription] = useState('')
   const [reportSubmitting, setReportSubmitting] = useState(false)
@@ -50,6 +51,38 @@ const Comment: React.FC<CommentProps> = ({
 
   const isReplying = replyingTo?.id === comment.id
   const isAuthor = currentUser && comment.authorId.toString() === currentUser.id.toString()
+
+  // 长按实现：支持PC鼠标和手机触摸
+  const handleMouseDown = useCallback(() => {
+    setPressStartTime(Date.now())
+  }, [])
+
+  const handleMouseUp = useCallback(() => {
+    if (pressStartTime && Date.now() - pressStartTime >= 500) {
+      setActionVisible(true)
+    }
+    setPressStartTime(null)
+  }, [pressStartTime])
+
+  const handleMouseLeave = useCallback(() => {
+    setPressStartTime(null)
+  }, [])
+
+  // 手机触摸长按
+  const handleTouchStart = useCallback(() => {
+    setPressStartTime(Date.now())
+  }, [])
+
+  const handleTouchEnd = useCallback(() => {
+    if (pressStartTime && Date.now() - pressStartTime >= 500) {
+      setActionVisible(true)
+    }
+    setPressStartTime(null)
+  }, [pressStartTime])
+
+  const handleTouchMove = useCallback(() => {
+    setPressStartTime(null)
+  }, [])
 
   const handleReplyClick = () => {
     if (!currentUser) {
@@ -160,133 +193,140 @@ const Comment: React.FC<CommentProps> = ({
         />
       </div>
 
-      <Popover
-        content={actionContent}
-        open={actionVisible}
-        onOpenChange={setActionVisible}
-        placement="bottomLeft"
-      >
-        <div className={styles.contentWrapper}>
-          <div className={styles.commentMeta}>
-            <span
-              className={styles.authorName}
-              onClick={() => navigate(`/user/${authorId}`)}
-              style={{ marginTop: depth === 0 ? 8 : 0 }}
-            >
-              {authorNickname}
+      <div className={styles.contentWrapper}>
+        <div className={styles.commentMeta}>
+          <span
+            className={styles.authorName}
+            onClick={() => navigate(`/user/${authorId}`)}
+            style={{ marginTop: depth === 0 ? 8 : 0 }}
+          >
+            {authorNickname}
+          </span>
+          {depth > 0 && parentNickname && (
+            <span className={styles.replyTo}>
+              <RightOutlined style={{ fontSize: 12, marginRight: 4 }} />
+              {parentNickname}
             </span>
-            {depth > 0 && parentNickname && (
-              <span className={styles.replyTo}>
-                <RightOutlined style={{ fontSize: 12, marginRight: 4 }} />
-                {parentNickname}
-              </span>
-            )}
-          </div>
+          )}
+        </div>
 
-          <div className={styles.commentText}>
+        <Popover
+          content={actionContent}
+          open={actionVisible}
+          onOpenChange={setActionVisible}
+          placement="bottomLeft"
+          trigger={['click']}
+        >
+          <div
+            className={styles.commentText}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onTouchMove={handleTouchMove}
+          >
             {comment.content}
           </div>
+        </Popover>
 
-          <div className={styles.commentActions}>
-            <span className={styles.commentTime}>
-              {dayjs(comment.createdAt).fromNow()}
-            </span>
-            <Button
-              type="text"
-              size="small"
-              className={styles.replyBtn}
-              onClick={handleReplyClick}
-            >
-              回复
-            </Button>
+        <div className={styles.commentActions}>
+          <span className={styles.commentTime}>{dayjs(comment.createdAt).fromNow()}</span>
+          <Button
+            type="text"
+            size="small"
+            className={styles.replyBtn}
+            onClick={handleReplyClick}
+          >
+            回复
+          </Button>
+        </div>
+
+        {isReplying && (
+          <div className={styles.replyInputWrapper}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+              <Input
+                placeholder="写下你的回复..."
+                value={replyContent}
+                onChange={(e) => setReplyContent(e.target.value)}
+                disabled={submitting}
+                style={{ flex: 1 }}
+              />
+              <Button
+                size="small"
+                type={replyContent.trim() ? 'primary' : 'default'}
+                loading={submitting}
+                onClick={handleSubmitReply}
+              >
+                回复
+              </Button>
+            </div>
           </div>
+        )}
 
-          {isReplying && (
-            <div className={styles.replyInputWrapper}>
-              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                <Input
-                  placeholder="写下你的回复..."
-                  value={replyContent}
-                  onChange={(e) => setReplyContent(e.target.value)}
-                  disabled={submitting}
-                  style={{ flex: 1 }}
-                />
-                <Button
-                  size="small"
-                  type={replyContent.trim() ? 'primary' : 'default'}
-                  loading={submitting}
-                  onClick={handleSubmitReply}
-                >
-                  回复
-                </Button>
-              </div>
-            </div>
-          )}
+        {/* 嵌套回复列表 - 只显示第一条，剩下的折叠 */}
+        {hasReplies && (
+          <div className={styles.replies}>
+            {(showAllReplies ? comment.replies : comment.replies.slice(0, 1)).map((reply) => (
+              <Comment
+                key={reply.id}
+                comment={reply}
+                onReply={onReply}
+                onDelete={onDelete}
+                replyingTo={replyingTo}
+                onSubmitReply={onSubmitReply}
+                onCancelReply={onCancelReply}
+                navigate={navigate}
+                currentUser={currentUser}
+                depth={(depth || 0) + 1}
+                parentNickname={authorNickname}
+              />
+            ))}
+            {hasMultipleReplies && !showAllReplies && (
+              <Button
+                type="link"
+                size="small"
+                icon={<DownOutlined />}
+                onClick={() => setShowAllReplies(true)}
+                className={styles.expandBtn}
+              >
+                <span style={{ color: '#999' }}>展开全部 {replyCount - 1} 条回复</span>
+              </Button>
+            )}
+            {hasMultipleReplies && showAllReplies && (
+              <Button
+                type="link"
+                size="small"
+                icon={<UpOutlined />}
+                onClick={() => setShowAllReplies(false)}
+                className={styles.collapseBtn}
+              >
+                <span style={{ color: '#999' }}>收起回复</span>
+              </Button>
+            )}
+          </div>
+        )}
 
-          {/* 嵌套回复列表 - 只显示第一条，剩下的折叠 */}
-          {hasReplies && (
-            <div className={styles.replies}>
-              {(showAllReplies ? comment.replies! : comment.replies!.slice(0, 1)).map((reply) => (
-                <Comment
-                  key={reply.id}
-                  comment={reply}
-                  onReply={onReply}
-                  onDelete={onDelete}
-                  replyingTo={replyingTo}
-                  onSubmitReply={onSubmitReply}
-                  onCancelReply={onCancelReply}
-                  navigate={navigate}
-                  currentUser={currentUser}
-                  depth={(depth || 0) + 1}
-                  parentNickname={authorNickname}
-                />
-              ))}
-              {hasMultipleReplies && !showAllReplies && (
-                <Button
-                  type="link"
-                  size="small"
-                  icon={<DownOutlined />}
-                  onClick={() => setShowAllReplies(true)}
-                  className={styles.expandBtn}
-                >
-                  <span style={{ color: '#999' }}>展开全部 {replyCount - 1} 条回复</span>
-                </Button>
-              )}
-              {hasMultipleReplies && showAllReplies && (
-                <Button
-                  type="link"
-                  size="small"
-                  icon={<UpOutlined />}
-                  onClick={() => setShowAllReplies(false)}
-                  className={styles.collapseBtn}
-                >
-                  <span style={{ color: '#999' }}>收起回复</span>
-                </Button>
-              )}
-            </div>
-          )}
-        </div>
-      </Popover>
-
-      {/* 举报弹窗 */}
-      <Modal
-        title="举报评论"
-        open={reportModalVisible}
-        onCancel={() => setReportModalVisible(false)}
-        onOk={handleSubmitReport}
-        confirmLoading={reportSubmitting}
-        width={400}
-      >
-        <div>
-          <p>请描述举报原因：</p>
-          <TextArea
-            rows={4}
-            placeholder="请详细描述违规内容，帮助我们更快处理..."
-            value={reportDescription}
-            onChange={(e) => setReportDescription(e.target.value)}
-          />
-        </div>
-      </Modal>
+        {/* 举报弹窗 */}
+        <Modal
+          title="举报评论"
+          open={reportModalVisible}
+          onCancel={() => setReportModalVisible(false)}
+          onOk={handleSubmitReport}
+          confirmLoading={reportSubmitting}
+          width={400}
+        >
+          <div>
+            <p>请描述举报原因：</p>
+            <TextArea
+              rows={4}
+              placeholder="请详细描述违规内容，帮助我们更快处理..."
+              value={reportDescription}
+              onChange={(e) => setReportDescription(e.target.value)}
+            />
+          </div>
+        </Modal>
+      </div>
     </div>
   )
 }
