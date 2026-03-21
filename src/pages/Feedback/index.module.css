@@ -1,5 +1,10 @@
 .feedback {
-  padding: 24px 0 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  padding-bottom: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
   min-height: calc(100vh - 200px);
 }
 
@@ -66,6 +71,13 @@
 }
 
 @media (max-width: 768px) {
+  .feedback {
+    padding-top: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 48px;
+  }
+  
   .title {
     font-size: 32px;
   }
