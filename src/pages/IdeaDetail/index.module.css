@@ -1,13 +1,24 @@
 .container {
-  max-width: 800px;
+  /* 内容宽度与其他页面保持一致 */
+  max-width: 1200px;
   margin: 0 auto;
+  /* 顶部与导航栏保持距离 */
+  padding-top: 24px;
   padding-bottom: 48px;
+}
+
+/* 移动端边距 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .loading {
   display: flex;
   justify-content: center;
-  padding: 100px 0;
+  padding: 120px 0;
 }
 
 .empty {
@@ -77,15 +88,91 @@
 }
 
 .footer {
-  padding-top: 8px;
+  padding-top: 12px;
+}
+
+.footerStats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footerStats :global(.ant-space) {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px !important;
+}
+
+.footerStats :global(.ant-space-item) {
+  display: inline-flex;
+  align-items: center;
+}
+
+.deleteBtn {
+  margin-left: auto;
+  padding: 4px 12px !important;
+  border-left: 1px solid #f0f0f0 !important;
+  margin-left: 16px !important;
+}
+
+.deleteBtn:hover {
+  color: #ff4d4f !important;
+  background-color: #fff1f0 !important;
 }
 
 .stat {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 4px;
   color: #666;
   font-size: 14px;
+  white-space: nowrap;
+}
+
+.footer :global(.ant-btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: auto !important;
+  min-height: 28px !important;
+  padding: 4px 12px !important;
+  font-size: 14px;
+}
+
+/* 手机端优化 */
+@media (max-width: 768px) {
+  .footerStats {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .footerStats :global(.ant-space) {
+    justify-content: flex-start;
+    gap: 12px !important;
+  }
+  
+  .deleteBtn {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: 1px solid #f0f0f0 !important;
+    margin-top: 8px;
+    padding-top: 12px !important;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer :global(.ant-btn) {
+    font-size: 13px !important;
+    padding: 6px 10px !important;
+  }
+  
+  .stat {
+    font-size: 13px;
+  }
 }
 
 .commentsCard {

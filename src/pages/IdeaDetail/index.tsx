@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Card, Avatar, Tag, Button, Input, List, Space, Spin, message, Divider } from 'antd'
-import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, UserOutlined } from '@ant-design/icons'
+import { Card, Avatar, Tag, Button, Input, Space, Spin, message, Divider, Modal, Row, Col } from 'antd'
+import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, UserOutlined, DeleteOutlined, FlagOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { Idea, Comment as CommentType } from '@/types'
-import { getIdeaDetail, likeIdea, unlikeIdea } from '@/services/idea'
-import { getComments, createComment } from '@/services/comment'
+import { Idea, Comment as CommentType, User } from '@/types'
+import { getIdeaDetail, likeIdea, unlikeIdea, deleteIdea } from '@/services/idea'
+import { getComments, createComment, deleteComment } from '@/services/comment'
+import { createReport } from '@/services/report'
+import Comment from '@/components/Comment'
 import styles from './index.module.css'
 
 dayjs.extend(relativeTime)
@@ -22,6 +24,24 @@ const IdeaDetail: React.FC = () => {
   const [commentContent, setCommentContent] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [commentsLoading, setCommentsLoading] = useState(false)
+  const [replyingTo, setReplyingTo] = useState<CommentType | null>(null)
+  const [reportModalVisible, setReportModalVisible] = useState(false)
+  const [reportDescription, setReportDescription] = useState('')
+  const [reportSubmitting, setReportSubmitting] = useState(false)
+  const [currentUser, setCurrentUser] = useState<User | null>(null)
+
+  // 加载当前用户信息
+  useEffect(() => {
+    const userStr = localStorage.getItem('user')
+    if (userStr) {
+      try {
+        const userData = JSON.parse(userStr)
+        setCurrentUser(userData)
+      } catch (e) {
+        console.error('解析用户信息失败', e)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (ideaId) {
@@ -38,7 +58,6 @@ const IdeaDetail: React.FC = () => {
       setIdea(data)
     } catch (error) {
       console.error('加载想法详情失败', error)
-      message.error('加载失败')
     } finally {
       setLoading(false)
     }
@@ -55,6 +74,18 @@ const IdeaDetail: React.FC = () => {
     } finally {
       setCommentsLoading(false)
     }
+  }
+
+  // 递归计算评论总数（包含所有层级回复）
+  const countAllComments = (comments: CommentType[]): number => {
+    let count = 0
+    for (const comment of comments) {
+      count += 1 // 主评论
+      if (comment.replies && comment.replies.length > 0) {
+        count += countAllComments(comment.replies) // 递归计算子回复
+      }
+    }
+    return count
   }
 
   const handleLike = async () => {
@@ -77,9 +108,43 @@ const IdeaDetail: React.FC = () => {
       }
     } catch (error) {
       console.error('点赞操作失败', error)
-      message.error('操作失败')
     }
   }
+
+  const handleDelete = () => {
+    Modal.confirm({
+      title: '确认删除',
+      content: '确定要删除这条想法吗？删除后无法恢复',
+      okText: '确认删除',
+      cancelText: '取消',
+      okType: 'danger',
+      onOk: async () => {
+        try {
+          await deleteIdea(idea!.id)
+          message.success('删除成功')
+          navigate('/')
+        } catch (error) {
+          console.error('删除失败', error)
+          message.error('删除失败，请重试')
+        }
+      },
+    })
+  }
+
+  const handleDeleteComment = async (commentId: string | number) => {
+    try {
+      await deleteComment(commentId.toString())
+      message.success('评论已删除')
+      // 重新加载评论列表
+      loadComments()
+    } catch (error) {
+      console.error('删除失败', error)
+      message.error('删除失败，请重试')
+    }
+  }
+
+  // 检查是否是当前用户
+  const isCurrentUser = currentUser?.id.toString() === idea?.author.id.toString()
 
   const handleSubmitComment = async () => {
     if (!idea || !commentContent.trim()) return
@@ -91,7 +156,22 @@ const IdeaDetail: React.FC = () => {
       loadComments()
     } catch (error) {
       console.error('评论失败', error)
-      message.error('评论失败，请重试')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  const handleSubmitReply = async (parentId: string | number, content: string) => {
+    if (!idea) return
+    try {
+      setSubmitting(true)
+      console.log('[回复] parentId:', parentId, 'content:', content)
+      await createComment(idea.id, { content, parentId })
+      message.success('回复成功')
+      setReplyingTo(null)
+      loadComments()
+    } catch (error) {
+      console.error('回复失败', error)
     } finally {
       setSubmitting(false)
     }
@@ -100,6 +180,53 @@ const IdeaDetail: React.FC = () => {
   const handleAuthorClick = () => {
     if (idea) {
       navigate(`/user/${idea.author.id}`)
+    }
+  }
+
+  const handleReply = (comment: CommentType) => {
+    if (!currentUser) {
+      message.warning('请先登录')
+      navigate('/login')
+      return
+    }
+    setReplyingTo(comment)
+  }
+
+  const handleCancelReply = () => {
+    setReplyingTo(null)
+  }
+
+  const handleReport = () => {
+    if (!currentUser) {
+      message.warning('请先登录')
+      navigate('/login')
+      return
+    }
+    setReportModalVisible(true)
+  }
+
+  const handleSubmitReport = async () => {
+    if (!idea) return
+    if (!reportDescription.trim()) {
+      message.warning('请填写举报原因')
+      return
+    }
+    try {
+      setReportSubmitting(true)
+      await createReport({
+        reportType: 'other',
+        targetType: 'idea',
+        targetId: Number(idea.id),
+        description: reportDescription.trim(),
+      })
+      message.success('举报提交成功，我们会尽快处理')
+      setReportModalVisible(false)
+      setReportDescription('')
+    } catch (error) {
+      console.error('举报提交失败', error)
+      message.error('举报提交失败，请重试')
+    } finally {
+      setReportSubmitting(false)
     }
   }
 
@@ -123,7 +250,7 @@ const IdeaDetail: React.FC = () => {
             <Avatar size={48} src={idea.author.avatar} icon={<UserOutlined />} />
             <div className={styles.authorInfo}>
               <div className={styles.authorName}>{idea.author.nickname}</div>
-              <div className={styles.time}>{dayjs(idea.createdAt).format('YYYY年MM月DD日 HH:mm')}</div>
+              <div className={styles.time}>{dayjs(idea.createdAt).format('YYYY 年 MM 月 DD 日 HH:mm')}</div>
             </div>
           </div>
         </div>
@@ -149,26 +276,57 @@ const IdeaDetail: React.FC = () => {
         <Divider />
 
         <div className={styles.footer}>
-          <Space size={32}>
-            <Button
-              type={idea.isLiked ? 'primary' : 'default'}
-              icon={idea.isLiked ? <LikeFilled /> : <LikeOutlined />}
-              onClick={handleLike}
-            >
-              {idea.likeCount} 点赞
-            </Button>
-            <span className={styles.stat}>
-              <CommentOutlined /> {comments.length} 评论
-            </span>
-            <span className={styles.stat}>
-              <EyeOutlined /> {idea.viewCount} 浏览
-            </span>
-          </Space>
+          <Row gutter={[8, 12]} align="middle">
+            <Col xs={24} sm={12} md={16} lg={18}>
+              <Space size={16} wrap align="center">
+                <Button
+                  type={idea.isLiked ? 'primary' : 'default'}
+                  icon={idea.isLiked ? <LikeFilled /> : <LikeOutlined />}
+                  onClick={handleLike}
+                  size="small"
+                >
+                  {idea.likeCount} 点赞
+                </Button>
+                <span className={styles.stat}>
+                  <CommentOutlined /> {countAllComments(comments)} 评论
+                </span>
+                <span className={styles.stat}>
+                  <EyeOutlined /> {idea.viewCount} 浏览
+                </span>
+              </Space>
+            </Col>
+            <Col xs={24} sm={12} md={8} lg={6} style={{ textAlign: 'right' }}>
+              <Space size={8} align="middle">
+                {!isCurrentUser && currentUser && (
+                  <Button
+                    danger
+                    type="text"
+                    size="small"
+                    icon={<FlagOutlined />}
+                    onClick={handleReport}
+                  >
+                    举报
+                  </Button>
+                )}
+                {isCurrentUser && (
+                  <Button
+                    danger
+                    type="text"
+                    size="small"
+                    icon={<DeleteOutlined />}
+                    onClick={handleDelete}
+                  >
+                    删除
+                  </Button>
+                )}
+              </Space>
+            </Col>
+          </Row>
         </div>
       </Card>
 
-      <Card 
-        title={`评论 (${comments.length})`} 
+      <Card
+        title={`评论 (${countAllComments(comments)})`}
         className={styles.commentsCard}
         loading={commentsLoading}
       >
@@ -179,13 +337,19 @@ const IdeaDetail: React.FC = () => {
             placeholder="写下你的评论..."
             value={commentContent}
             onChange={(e) => setCommentContent(e.target.value)}
+            disabled={!currentUser}
           />
+          {!currentUser && (
+            <div style={{ marginTop: 8, fontSize: 12, color: '#999' }}>
+              登录后发表评论
+            </div>
+          )}
           <div className={styles.commentActions}>
             <Button
               type="primary"
               onClick={handleSubmitComment}
               loading={submitting}
-              disabled={!commentContent.trim()}
+              disabled={!commentContent.trim() || !currentUser}
             >
               发表评论
             </Button>
@@ -195,34 +359,56 @@ const IdeaDetail: React.FC = () => {
         <Divider />
 
         {/* 评论列表 */}
-        <List
-          dataSource={comments}
-          locale={{ emptyText: '暂无评论，来抢沙发吧' }}
-          renderItem={(comment) => (
-            <div className={styles.commentItem}>
-              <div className={styles.commentHeader}>
-                <div className={styles.commentAuthor} onClick={() => navigate(`/user/${comment.author.id}`)}>
-                  <Avatar 
-                    size="small"
-                    src={comment.author.avatar} 
-                    icon={<UserOutlined />}
-                  />
-                  <span className={styles.authorName}>{comment.author.nickname}</span>
-                </div>
-                <span className={styles.commentTime}>{dayjs(comment.createdAt).fromNow()}</span>
-              </div>
-              <div className={styles.commentContent}>
-                <p>{comment.content}</p>
-              </div>
-              <div className={styles.commentActions}>
-                <span>
-                  <LikeOutlined /> {comment.likeCount}
-                </span>
-              </div>
-            </div>
-          )}
-        />
+        {comments.length > 0 ? (
+          comments.map(comment => (
+            <Comment
+              key={comment.id}
+              comment={comment}
+              onReply={handleReply}
+              onDelete={handleDeleteComment}
+              replyingTo={replyingTo}
+              onSubmitReply={handleSubmitReply}
+              onCancelReply={handleCancelReply}
+              navigate={navigate}
+              currentUser={currentUser}
+            />
+          ))
+        ) : (
+          <div style={{ textAlign: 'center', padding: '32px 0', color: '#999' }}>
+            暂无评论，来抢沙发吧
+          </div>
+        )}
       </Card>
+
+      {/* 举报弹窗 */}
+      <Modal
+        title="举报违规内容"
+        open={reportModalVisible}
+        onCancel={() => {
+          setReportModalVisible(false)
+          setReportDescription('')
+        }}
+        onOk={handleSubmitReport}
+        confirmLoading={reportSubmitting}
+        okText="提交举报"
+        cancelText="取消"
+        width={500}
+      >
+        <div style={{ marginBottom: 16 }}>
+          <p style={{ color: '#666', fontSize: 14 }}>
+            你正在举报 <strong>{idea.title}</strong>
+          </p>
+        </div>
+        <TextArea
+          rows={4}
+          placeholder="请详细描述违规原因，帮助我们更快处理..."
+          value={reportDescription}
+          onChange={(e) => setReportDescription(e.target.value)}
+        />
+        <div style={{ marginTop: 12, fontSize: 12, color: '#999' }}>
+          我们会在 24 小时内审核并处理你的举报
+        </div>
+      </Modal>
     </div>
   )
 }

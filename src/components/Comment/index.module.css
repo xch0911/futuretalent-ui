@@ -1,0 +1,178 @@
+.commentItem {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.commentItem:last-child {
+  border-bottom: none;
+}
+
+/* 头像区域 */
+.avatarWrapper {
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* 内容区域 */
+.contentWrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 元信息：昵称 */
+.commentMeta {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.authorName {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.authorName:hover {
+  color: #1890ff;
+}
+
+/* 评论内容 */
+.commentText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.commentText[style*="cursor: pointer"]:hover {
+  background-color: #f5f5f5;
+}
+
+.commentText[style*="cursor: pointer"]:active {
+  background-color: #e6e6e6;
+}
+
+/* 操作行：时间 + 按钮 */
+.commentActions {
+  display: flex;
+  align-items: center;
+}
+
+.commentTime {
+  font-size: 12px;
+  color: #999;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.replyBtn,
+.toggleBtn {
+  height: auto;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #666;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.replyBtn:hover,
+.toggleBtn:hover {
+  color: #1890ff;
+}
+
+/* 回复输入框 */
+.replyInputWrapper {
+  margin-top: 8px;
+}
+
+.replyInput {
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+.replyInput :global(.ant-input) {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+}
+
+.replyInput :global(.ant-input):focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+}
+
+/* 操作弹窗 */
+.commentActionsPopup {
+  min-width: 100px;
+}
+
+/* 展开/收起按钮 */
+.expandBtn,
+.collapseBtn {
+  padding: 8px 0 8px 48px;
+}
+
+.expandBtn :global(.ant-btn),
+.collapseBtn :global(.ant-btn) {
+  color: #999;
+  font-size: 13px;
+}
+
+.expandBtn :global(.ant-btn):hover,
+.collapseBtn :global(.ant-btn):hover {
+  color: #40a9ff;
+}
+
+/* 子评论嵌套 - 去掉左边竖线，保持缩进通过头像 */
+.replies {
+  margin-top: 8px;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* 所有层级子评论 */
+.replies .commentItem {
+  padding: 8px 0 8px 0;
+  border-left: none;
+}
+
+.replies .commentItem:last-child {
+  border-bottom: none;
+}
+
+/* 子评论字体略小 */
+.replies .authorName,
+.replies .commentText,
+.replies .commentTime {
+  font-size: 13px;
+}
+
+/* 子评论头像更小 */
+.replies .avatar {
+  width: 24px;
+  height: 24px;
+}
+
+/* 回复对象的名称样式 */
+.replyTo {
+  color: #999;
+  font-size: 12px;
+}
