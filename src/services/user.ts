@@ -53,3 +53,18 @@ export interface Stats {
 export const getStats = (): Promise<Stats> => {
   return request.get('/users/stats')
 }
+
+// 搜索用户
+export const searchUsers = (
+  keyword: string,
+  page: number = 1,
+  pageSize: number = 10
+): Promise<PaginationResponse<User>> => {
+  return request.get('/users/search', {
+    params: {
+      keyword,
+      page,
+      pageSize
+    }
+  })
+}
