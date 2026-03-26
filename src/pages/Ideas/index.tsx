@@ -155,7 +155,7 @@ const Ideas: React.FC = () => {
 
   return (
     <div className={styles.ideas}>
-      <div className={styles.container}>
+      <div className="container">
       <Row gutter={[24, 24]}>
         <Col xs={24} lg={16}>
           <Card className={styles.filterCard}>

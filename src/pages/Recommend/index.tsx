@@ -240,6 +240,8 @@ const RecommendPage: React.FC = () => {
  )
 
  return (
+ <div className={styles.recommend}>
+ <div className="container">
  <div
  className={styles.container}
  ref={containerRef}
@@ -341,12 +343,14 @@ const RecommendPage: React.FC = () => {
  {/* 加载更多提示（放在所有内容最后） */}
  {loadingMore && (
  <div className={styles.loadingMore}>
- <Spin size="small" /> 加载更多…
+ <Spin size="default" /> 加载更多…
  </div>
  )}
 
 
  </Spin>
+ </div>
+ </div>
  </div>
  )
 }

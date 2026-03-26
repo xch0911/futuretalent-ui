@@ -1,12 +1,17 @@
+.recommend {
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #f5f5f5;
+}
+
 .container {
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  background: #f5f5f5;
   position: relative;
-  padding: 10px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -16,7 +21,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 10px 10px 0 10px;
+  padding: 10px 0 0 0;
   box-sizing: border-box;
   scroll-snap-align: start;
   scroll-snap-stop: always;

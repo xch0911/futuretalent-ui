@@ -85,22 +85,22 @@ const Header: React.FC = () => {
 
           <nav className={styles.nav}>
             <Link 
-              to="/" 
-              className={`${styles.navLink} ${location.pathname === '/' ? styles.active : ''}`}
+              to="/recommend" 
+              className={`${styles.navLink} ${location.pathname === '/recommend' || location.pathname === '/' ? styles.active : ''}`}
             >
-              首页
+              推荐
+            </Link>
+            <Link 
+              to="/hot" 
+              className={`${styles.navLink} ${location.pathname === '/hot' ? styles.active : ''}`}
+            >
+              热门
             </Link>
             <Link 
               to="/ideas" 
               className={`${styles.navLink} ${location.pathname === '/ideas' ? styles.active : ''}`}
             >
               想法广场
-            </Link>
-            <Link 
-              to="/recommend" 
-              className={`${styles.navLink} ${location.pathname === '/recommend' ? styles.active : ''}`}
-            >
-              推荐
             </Link>
           </nav>
 
@@ -235,11 +235,18 @@ const Header: React.FC = () => {
           <div className={styles.mobileNavSection}>
             <div className={styles.mobileSectionTitle}>导航</div>
             <Link 
-              to="/" 
+              to="/recommend" 
               className={styles.mobileNavLink}
               onClick={() => setMenuOpen(false)}
             >
-              📱 首页
+              🎲 推荐
+            </Link>
+            <Link 
+              to="/hot" 
+              className={styles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              🔥 热门
             </Link>
             <Link 
               to="/ideas" 
@@ -247,13 +254,6 @@ const Header: React.FC = () => {
               onClick={() => setMenuOpen(false)}
             >
               💡 想法广场
-            </Link>
-            <Link 
-              to="/recommend" 
-              className={styles.mobileNavLink}
-              onClick={() => setMenuOpen(false)}
-            >
-              🎲 推荐
             </Link>
           </div>
 
