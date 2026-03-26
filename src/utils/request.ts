@@ -20,7 +20,7 @@ const showError = (msg: string) => {
 
 const instance: AxiosInstance = axios.create({
   baseURL: BASE_URL,
-  timeout: 30000,  // 增加到 30 秒
+  timeout: 60000,  // 增加到 60 秒
   withCredentials: true,
 })
 

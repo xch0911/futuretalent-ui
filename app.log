@@ -1,0 +1,487 @@
+
+> futuretalent-ui@1.0.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 223 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.25.11.157:3000/
+  ➜  Network: http://10.255.1.1:3000/
+2:04:25 PM [vite] hmr update /src/components/IdeaCard/index.tsx
+2:07:53 PM [vite] hmr update /src/pages/IdeaCreate/index.tsx, /src/pages/Ideas/index.tsx, /src/pages/Home/index.tsx, /src/pages/Recommend/index.tsx, /src/pages/IdeaDetail/index.tsx
+2:08:07 PM [vite] hmr update /src/pages/Recommend/index.tsx
+2:41:34 PM [vite] hmr update /src/pages/Recommend/index.tsx
+2:43:26 PM [vite] hmr update /src/pages/Recommend/index.tsx
+2:45:31 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:25:08 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:27:26 PM [vite] ✨ new dependencies optimized: lodash/throttle
+10:27:26 PM [vite] ✨ optimized dependencies changed. reloading
+10:35:01 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:38:06 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:42:38 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:44:16 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:48:13 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:48:19 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:51:21 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:54:40 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:54:52 PM [vite] hmr update /src/pages/Recommend/index.tsx
+10:59:55 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:00:11 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:00:37 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:08:59 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:15:43 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:15:57 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:17:52 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:18:06 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:19:38 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:21:56 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:22:42 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:23:56 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:24:13 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:25:15 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:26:33 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:26:43 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:26:51 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:26:59 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:32:09 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:33:57 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:34:27 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:37:59 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:41:05 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:41:12 PM [vite] hmr update /src/pages/Recommend/index.tsx
+11:48:25 PM [vite] hmr update /src/pages/Recommend/index.tsx
+12:11:30 AM [vite] hmr update /src/pages/Recommend/index.tsx
+2:40:48 AM [vite] hmr update /src/pages/IdeaCreate/index.tsx, /src/pages/Ideas/index.tsx, /src/pages/Home/index.tsx, /src/pages/Recommend/index.tsx, /src/pages/IdeaDetail/index.tsx
+2:40:59 AM [vite] hmr update /src/pages/Recommend/index.tsx
+2:41:04 AM [vite] hmr update /src/pages/Recommend/index.tsx
+2:41:19 AM [vite] hmr update /src/pages/Recommend/index.tsx
+2:42:38 AM [vite] hmr update /src/pages/UserProfile/index.tsx
+2:42:56 AM [vite] http proxy error: /api/auth/register
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+2:43:00 AM [vite] http proxy error: /api/auth/register
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+2:58:58 AM [vite] hmr update /src/components/IdeaCard/index.tsx
+2:59:17 AM [vite] hmr update /src/components/IdeaCard/index.tsx
+2:59:31 AM [vite] hmr update /src/pages/Recommend/index.tsx
+2:59:50 AM [vite] hmr update /src/pages/UserProfile/index.tsx
+3:05:08 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:08 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:13 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:13 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:13 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:13 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:13 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:13 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:15 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:15 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:05:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:31 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:31 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:37 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:37 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:37 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:37 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:37 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:07:37 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:08:34 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:08:34 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:08:34 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:08:34 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:08:34 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:08:35 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:09:43 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:09:43 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:09:43 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:09:43 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:09:43 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:09:43 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:10:36 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:10:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:10:36 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:10:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:10:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:10:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:16:04 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:16:04 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:16:04 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:16:04 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:16:04 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:16:04 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:18:49 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:18:49 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:18:49 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:18:49 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:18:49 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:18:49 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:36 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:36 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:36 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:39 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:25:39 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:28:53 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:28:53 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:30:54 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:30:55 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:32:05 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:32:05 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:32:20 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:32:20 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:32:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:32:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:24 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:24 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:29 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:29 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:34:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:36:22 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:36:22 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:36:22 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:36:22 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:36:22 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:36:22 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:29 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:29 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:29 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:47 AM [vite] http proxy error: /api/ideas/recommend
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:50 AM [vite] http proxy error: /api/users/212
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:37:50 AM [vite] http proxy error: /api/users/212
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:51 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:51 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:51 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:53 AM [vite] http proxy error: /api/users/212
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:38:53 AM [vite] http proxy error: /api/users/212
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:04 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:04 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:35 AM [vite] http proxy error: /api/ideas/recommend
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:42 AM [vite] http proxy error: /api/users/212
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:42 AM [vite] http proxy error: /api/users/212
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:45 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:45 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:48 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:48 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:48 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:48 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:48 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:39:48 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:40:39 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:40:39 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:42:28 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:42:28 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:43:12 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:43:12 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:43:50 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:43:50 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:45:45 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:45:45 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:46:09 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:46:09 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:58:00 AM [vite] http proxy error: /api/ideas/recommend
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+3:58:01 AM [vite] http proxy error: /api/ideas/recommend
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+8:58:09 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+8:58:09 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+The request url "/home/admin/.openclaw/workspace/futuretalent-ui/.env" is outside of Vite serving allow list.
+
+- /home/admin/.openclaw/workspace/futuretalent-ui
+
+Refer to docs https://vite.dev/config/server-options.html#server-fs-allow for configurations and more details.
+
+The request url "/home/admin/.openclaw/workspace/futuretalent-ui/.env" is outside of Vite serving allow list.
+10:46:54 PM [vite] http proxy error: /api/trpc/setup.setup
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:07 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:07 AM [vite] http proxy error: /api/ideas?page=1&pageSize=5&sort=hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:11 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:11 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:11 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:11 AM [vite] http proxy error: /api/users/tags/hot
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:11 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)
+7:06:11 AM [vite] http proxy error: /api/ideas?page=1&pageSize=10&sort=latest
+Error: connect ECONNREFUSED 127.0.0.1:8081
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1645:16)

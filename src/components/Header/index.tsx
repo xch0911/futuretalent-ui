@@ -92,9 +92,15 @@ const Header: React.FC = () => {
             </Link>
             <Link 
               to="/ideas" 
-              className={`${styles.navLink} ${location.pathname.startsWith('/ideas') ? styles.active : ''}`}
+              className={`${styles.navLink} ${location.pathname === '/ideas' ? styles.active : ''}`}
             >
               想法广场
+            </Link>
+            <Link 
+              to="/recommend" 
+              className={`${styles.navLink} ${location.pathname === '/recommend' ? styles.active : ''}`}
+            >
+              推荐
             </Link>
           </nav>
 
@@ -241,6 +247,13 @@ const Header: React.FC = () => {
               onClick={() => setMenuOpen(false)}
             >
               💡 想法广场
+            </Link>
+            <Link 
+              to="/recommend" 
+              className={styles.mobileNavLink}
+              onClick={() => setMenuOpen(false)}
+            >
+              🎲 推荐
             </Link>
           </div>
 

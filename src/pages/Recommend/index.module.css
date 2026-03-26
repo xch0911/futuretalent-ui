@@ -1,0 +1,159 @@
+.container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background: #f5f5f5;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* 每条内容占满一屏 */
+.cardWrapper {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 10px 0 10px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.ideaCard {
+  width: 100%;
+  max-width: 600px;
+  min-height: 85vh;
+  padding: 24px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.tags {
+  margin-bottom: 16px;
+}
+
+.content {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+.blank {
+  height: 8px;
+}
+
+/* 作者信息 */
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.authorNickname {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.createdAt {
+  font-size: 13px;
+  color: #999;
+}
+
+/* 右侧点赞评论栏 */
+.sidebar {
+  position: absolute;
+  right: 20px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 22px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.item span {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* 空状态居中 */
+.emptyContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 让 Spin loading 真正居中 */
+.container :global(.ant-spin-spinning) {
+  min-height: calc(100vh - 20px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 0 !important;
+}
+
+/* 让 Spin 在加载时也居中 */
+.container :global(.ant-spin-spinning) {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+}
+
+/* 加载更多 */
+.loadingMore {
+  padding: 80px 20px 120px;
+  text-align: center;
+}
+
+/* 滑动提示 */
+.hint {
+  text-align: center;
+  padding: 80px 20px 120px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* 下拉刷新提示 */
+.pullTip {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #666;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

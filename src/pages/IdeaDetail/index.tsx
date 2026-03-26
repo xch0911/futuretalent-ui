@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { Card, Avatar, Tag, Button, Input, Space, Spin, message, Divider, Modal, Row, Col } from 'antd'
-import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, UserOutlined, DeleteOutlined, FlagOutlined } from '@ant-design/icons'
+import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, UserOutlined, DeleteOutlined, FlagOutlined, StarOutlined, StarFilled } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { Idea, Comment as CommentType, User } from '@/types'
-import { getIdeaDetail, likeIdea, unlikeIdea, deleteIdea } from '@/services/idea'
+import { getIdeaDetail, likeIdea, unlikeIdea, favoriteIdea, unfavoriteIdea, deleteIdea } from '@/services/idea'
 import { getComments, createComment, deleteComment } from '@/services/comment'
 import { createReport } from '@/services/report'
 import Comment from '@/components/Comment'
@@ -30,6 +30,8 @@ const IdeaDetail: React.FC = () => {
   const [reportDescription, setReportDescription] = useState('')
   const [reportSubmitting, setReportSubmitting] = useState(false)
   const [currentUser, setCurrentUser] = useState<User | null>(null)
+  // 收藏状态从 idea 中获取，如果没有默认为 false
+  const [isFavorite, setIsFavorite] = useState(false)
 
   // 加载当前用户信息
   useEffect(() => {
@@ -57,6 +59,7 @@ const IdeaDetail: React.FC = () => {
       setLoading(true)
       const data = await getIdeaDetail(ideaId)
       setIdea(data)
+      setIsFavorite(data.isFavorite || false)
     } catch (error) {
       console.error('加载想法详情失败', error)
     } finally {
@@ -109,6 +112,37 @@ const IdeaDetail: React.FC = () => {
       }
     } catch (error) {
       console.error('点赞操作失败', error)
+    }
+  }
+
+  const handleFavorite = async () => {
+    if (!idea || !currentUser) {
+      message.warning('请先登录')
+      navigate('/login', { state: { from: location.pathname } })
+      return
+    }
+    try {
+      const oldIsFavorite = isFavorite;
+      const oldCount = idea.favoriteCount || 0;
+      if (isFavorite) {
+        await unfavoriteIdea(idea.id)
+        setIsFavorite(false)
+        setIdea({
+          ...idea,
+          favoriteCount: oldCount - 1,
+        })
+        message.success('已取消收藏')
+      } else {
+        await favoriteIdea(idea.id)
+        setIsFavorite(true)
+        setIdea({
+          ...idea,
+          favoriteCount: oldCount + 1,
+        })
+        message.success('收藏成功')
+      }
+    } catch (error) {
+      console.error('收藏操作失败', error)
     }
   }
 
@@ -292,6 +326,16 @@ const IdeaDetail: React.FC = () => {
                 >
                   {idea.likeCount} 点赞
                 </Button>
+                {currentUser && (
+                  <Button
+                    type={isFavorite ? 'primary' : 'default'}
+                    icon={isFavorite ? <StarFilled /> : <StarOutlined />}
+                    onClick={handleFavorite}
+                    size="small"
+                  >
+                    {idea.favoriteCount || 0} 收藏
+                  </Button>
+                )}
                 <span className={styles.stat}>
                   <CommentOutlined /> {countAllComments(comments)} 评论
                 </span>
@@ -332,6 +376,7 @@ const IdeaDetail: React.FC = () => {
       </Card>
 
       <Card
+        id="comments"
         title={`评论 (${countAllComments(comments)})`}
         className={styles.commentsCard}
         loading={commentsLoading}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Card, Avatar, Tag, Space } from 'antd'
-import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined } from '@ant-design/icons'
+import { LikeOutlined, LikeFilled, CommentOutlined, EyeOutlined, StarOutlined } from '@ant-design/icons'
 import { Idea } from '@/types'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -19,7 +19,7 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, onLike }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    navigate(`/idea/${idea.id}`)
+    navigate(`/ideas/${idea.id}`)
   }
 
   const handleAuthorClick = (e: React.MouseEvent) => {
@@ -43,7 +43,7 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, onLike }) => {
       <div className={styles.header}>
         <div className={styles.author} onClick={handleAuthorClick}>
           <Avatar size="small" src={idea.author?.avatar} />
-          <span className={styles.authorName}>{idea.author?.nickname || '未知用户'}</span>
+          <span className={styles.authorName}>{idea.author?.nickname || '匿名用户'}</span>
         </div>
         <span className={styles.time}>{dayjs(idea.createdAt).fromNow()}</span>
       </div>
@@ -75,6 +75,10 @@ const IdeaCard: React.FC<IdeaCardProps> = ({ idea, onLike }) => {
           <span className={styles.stat}>
             <EyeOutlined />
             <span className={styles.count}>{idea.viewCount}</span>
+          </span>
+          <span className={styles.stat}>
+            <StarOutlined />
+            <span className={styles.count}>{idea.favoriteCount || 0}</span>
           </span>
         </Space>
       </div>

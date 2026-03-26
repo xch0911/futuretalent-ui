@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic, message } from 'antd'
-import { UserOutlined, UserAddOutlined, BulbOutlined, EditOutlined } from '@ant-design/icons'
+import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic, message, Tabs } from 'antd'
+import { UserOutlined, UserAddOutlined, BulbOutlined, EditOutlined, StarOutlined } from '@ant-design/icons'
 import { User, Idea } from '@/types'
 import { getUserInfo, getUserIdeas, followUser, unfollowUser } from '@/services/user'
+import { getMyFavorites } from '@/services/idea'
 import IdeaCard from '@/components/IdeaCard'
 import styles from './index.module.css'
 
@@ -13,8 +14,15 @@ const UserProfile: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [userInfo, setUserInfo] = useState<User | null>(null)
+  const [activeTab, setActiveTab] = useState<'ideas' | 'favorites'>('ideas')
   const [ideas, setIdeas] = useState<Idea[]>([])
+  const [favorites, setFavorites] = useState<Idea[]>([])
   const [pagination, setPagination] = useState({
+    page: 1,
+    pageSize: 10,
+    total: 0,
+  })
+  const [favoritePagination, setFavoritePagination] = useState({
     page: 1,
     pageSize: 10,
     total: 0,
@@ -89,6 +97,31 @@ const UserProfile: React.FC = () => {
     }
   }
 
+  const loadUserFavorites = async (page: number = 1) => {
+    if (!isOwnProfile) return
+    try {
+      setLoading(true)
+      const res = await getMyFavorites(page, favoritePagination.pageSize)
+      setFavorites(res.list)
+      setFavoritePagination({
+        ...favoritePagination,
+        page,
+        total: res.total,
+      })
+    } catch (error) {
+      console.error('加载收藏失败', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleTabChange = (key: string) => {
+    setActiveTab(key as 'ideas' | 'favorites')
+    if (key === 'favorites' && isOwnProfile) {
+      loadUserFavorites(1)
+    }
+  }
+
   const handleFollow = async () => {
     if (!userId) return
     try {
@@ -124,7 +157,11 @@ const UserProfile: React.FC = () => {
   }
 
   const handlePageChange = (page: number) => {
-    loadUserIdeas(page)
+    if (activeTab === 'ideas') {
+      loadUserIdeas(page)
+    } else {
+      loadUserFavorites(page)
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -196,34 +233,64 @@ const UserProfile: React.FC = () => {
                 <Col span={8}>
                   <Statistic title="关注了" value={userInfo.followingCount} />
                 </Col>
+                <Col span={8}>
+                  <Statistic title="收藏" value={userInfo.favoriteCount || 0} prefix={<StarOutlined />} />
+                </Col>
               </Row>
             </div>
           </Card>
         </Col>
 
         <Col xs={24} md={16}>
-          <Card 
-            title={`${userInfo.nickname} 的想法`}
-            className={styles.content}
-          >
+          <Card className={styles.content}>
+            <Tabs
+              activeKey={activeTab}
+              onChange={handleTabChange}
+              items={[
+                { key: 'ideas', label: `${userInfo.nickname} 的想法` },
+                ...(isOwnProfile ? [{ key: 'favorites', label: '我的收藏', icon: <StarOutlined /> }] : []),
+              ]}
+            />
+
             <Spin spinning={loading}>
-              {ideas.length > 0 ? (
-                <>
-                  {ideas.map(idea => (
-                    <IdeaCard key={idea.id} idea={idea} onLike={handleLike} />
-                  ))}
-                  <div className={styles.pagination}>
-                    <Pagination
-                      current={pagination.page}
-                      total={pagination.total}
-                      pageSize={pagination.pageSize}
-                      onChange={handlePageChange}
-                      showSizeChanger={false}
-                    />
-                  </div>
-                </>
+              {activeTab === 'ideas' ? (
+                ideas.length > 0 ? (
+                  <>
+                    {ideas.map(idea => (
+                      <IdeaCard key={idea.id} idea={idea} onLike={handleLike} />
+                    ))}
+                    <div className={styles.pagination}>
+                      <Pagination
+                        current={pagination.page}
+                        total={pagination.total}
+                        pageSize={pagination.pageSize}
+                        onChange={handlePageChange}
+                        showSizeChanger={false}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <Empty description="这个人还没有发布任何想法" />
+                )
               ) : (
-                <Empty description="这个人还没有发布任何想法" />
+                favorites.length > 0 ? (
+                  <>
+                    {favorites.map(idea => (
+                      <IdeaCard key={idea.id} idea={idea} onLike={handleLike} />
+                    ))}
+                    <div className={styles.pagination}>
+                      <Pagination
+                        current={favoritePagination.page}
+                        total={favoritePagination.total}
+                        pageSize={favoritePagination.pageSize}
+                        onChange={handlePageChange}
+                        showSizeChanger={false}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <Empty description="还没有收藏任何想法" />
+                )
               )}
             </Spin>
           </Card>

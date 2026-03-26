@@ -53,3 +53,39 @@ export const updateIdea = (id: string, params: Partial<CreateIdeaParams>): Promi
 export const deleteIdea = (id: string): Promise<void> => {
   return request.delete(`/ideas/${id}`)
 }
+
+// 获取个性化推荐（每次返回 10 条）
+export const getRecommendations = (exclude?: string): Promise<Idea[]> => {
+  return request.get('/ideas/recommend', { params: { exclude } })
+}
+
+// ========== 收藏功能 ==========
+// 获取用户收藏列表
+export const getMyFavorites = (page: number, pageSize: number = 10): Promise<PaginationResponse<Idea>> => {
+  return request.get('/favorites', { params: { page, pageSize } })
+}
+
+// 切换收藏状态（收藏/取消收藏）
+export const toggleFavorite = (ideaId: string): Promise<string> => {
+  return request.post(`/favorites/toggle/${ideaId}`)
+}
+
+// 检查是否已收藏
+export const checkFavorite = (ideaId: string): Promise<boolean> => {
+  return request.get(`/favorites/check/${ideaId}`)
+}
+
+// 获取收藏总数
+export const getFavoriteCount = (): Promise<number> => {
+  return request.get('/favorites/count')
+}
+
+// 收藏想法
+export const favoriteIdea = (id: string): Promise<void> => {
+  return request.post(`/favorites/toggle/${id}`)
+}
+
+// 取消收藏
+export const unfavoriteIdea = (id: string): Promise<void> => {
+  return request.post(`/favorites/toggle/${id}`)
+}

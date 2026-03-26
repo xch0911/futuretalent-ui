@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>图片裁剪测试 - 触摸拖动</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .test-section {
+      margin-bottom: 30px;
+    }
+
+    .test-section h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .upload-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #1890ff;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+
+    .cropper-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      overflow: hidden;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .controls {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .controls label {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .controls input[type="range"] {
+      flex: 1;
+    }
+
+    .tip {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e6f7ff;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #1890ff;
+    }
+
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f6ffed;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #52c41a;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .test-btn {
+      padding: 8px 16px;
+      background: #52c41a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .test-btn.danger {
+      background: #ff4d4f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 图片裁剪触摸测试</h1>
+
+    <!-- 测试 1: 原生触摸事件 -->
+    <div class="test-section">
+      <h2>测试 1: 原生触摸事件监听</h2>
+      <label class="upload-btn">
+        选择图片
+        <input type="file" id="file1" accept="image/*">
+      </label>
+      <div class="cropper-wrapper" id="cropper1" style="display: none;">
+        <img id="image1" style="width: 100%; height: 100%; object-fit: contain;" />
+      </div>
+      <div class="status" id="status1">等待选择图片...</div>
+    </div>
+
+    <!-- 测试 2: react-easy-crop -->
+    <div class="test-section">
+      <h2>测试 2: react-easy-crop 组件</h2>
+      <label class="upload-btn">
+        选择图片
+        <input type="file" id="file2" accept="image/*">
+      </label>
+      <div id="react-cropper-container"></div>
+      <div class="tip" id="tip2">请先选择图片</div>
+    </div>
+
+    <!-- 测试信息 -->
+    <div class="test-section">
+      <h2>测试信息</h2>
+      <button class="test-btn" onclick="showInfo()">显示设备信息</button>
+      <button class="test-btn danger" onclick="clearLog()">清空日志</button>
+      <div class="status" id="device-info">点击按钮显示设备信息</div>
+    </div>
+  </div>
+
+  <script>
+    // 设备信息
+    const deviceInfo = {
+      userAgent: navigator.userAgent,
+      touchSupport: 'ontouchstart' in window,
+      maxTouchPoints: navigator.maxTouchPoints || 0,
+      platform: navigator.platform,
+      language: navigator.language
+    }
+
+    function showInfo() {
+      document.getElementById('device-info').innerHTML = `
+        <strong>User Agent:</strong> ${deviceInfo.userAgent}<br>
+        <strong>触摸支持:</strong> ${deviceInfo.touchSupport ? '✅ 支持' : '❌ 不支持'}<br>
+        <strong>最大触摸点:</strong> ${deviceInfo.maxTouchPoints}<br>
+        <strong>平台:</strong> ${deviceInfo.platform}<br>
+        <strong>语言:</strong> ${deviceInfo.language}
+      `
+    }
+
+    function clearLog() {
+      document.getElementById('device-info').innerHTML = '日志已清空'
+      document.getElementById('status1').innerHTML = '等待选择图片...'
+    }
+
+    // 测试 1: 原生触摸事件
+    const file1 = document.getElementById('file1')
+    const cropper1 = document.getElementById('cropper1')
+    const image1 = document.getElementById('image1')
+    const status1 = document.getElementById('status1')
+
+    file1.addEventListener('change', (e) => {
+      const file = e.target.files[0]
+      if (!file) return
+
+      const reader = new FileReader()
+      reader.onload = (event) => {
+        image1.src = event.target.result
+        cropper1.style.display = 'block'
+        status1.innerHTML = `✅ 图片加载成功<br>尺寸：${image1.naturalWidth} x ${image1.naturalHeight}`
+        
+        // 添加触摸事件监听
+        setupTouchEvents(cropper1)
+      }
+      reader.readAsDataURL(file)
+    })
+
+    function setupTouchEvents(element) {
+      let startX, startY, moveX, moveY
+      let lastTouchDistance = null
+
+      element.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+        
+        if (e.touches.length === 1) {
+          // 单指 - 拖动
+          startX = e.touches[0].clientX
+          startY = e.touches[0].clientY
+          status1.innerHTML = `👆 单指拖动开始<br>X: ${startX}, Y: ${startY}`
+        } else if (e.touches.length === 2) {
+          // 双指 - 缩放
+          lastTouchDistance = getTouchDistance(e.touches)
+          status1.innerHTML = `👌 双指缩放开始<br>距离：${lastTouchDistance.toFixed(2)}`
+        }
+      }, { passive: false })
+
+      element.addEventListener('touchmove', (e) => {
+        e.preventDefault()
+        
+        if (e.touches.length === 1) {
+          // 单指拖动
+          const deltaX = e.touches[0].clientX - startX
+          const deltaY = e.touches[0].clientY - startY
+          status1.innerHTML = `👆 拖动中<br>ΔX: ${deltaX.toFixed(0)}, ΔY: ${deltaY.toFixed(0)}`
+        } else if (e.touches.length === 2) {
+          // 双指缩放
+          const distance = getTouchDistance(e.touches)
+          const delta = distance - lastTouchDistance
+          status1.innerHTML = `👌 缩放中<br>Δ: ${delta.toFixed(2)}`
+        }
+      }, { passive: false })
+
+      element.addEventListener('touchend', (e) => {
+        status1.innerHTML += `<br>✅ 触摸结束`
+      })
+    }
+
+    function getTouchDistance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX
+      const dy = touches[0].clientY - touches[1].clientY
+      return Math.sqrt(dx * dx + dy * dy)
+    }
+
+    // 测试 2: react-easy-crop (需要 React 环境)
+    const tip2 = document.getElementById('tip2')
+    tip2.innerHTML = `
+      💡 <strong>测试说明:</strong><br>
+      1. 在测试 1 中选择图片，测试原生触摸事件<br>
+      2. 单指拖动应该显示坐标变化<br>
+      3. 双指捏合应该显示距离变化<br>
+      4. 如果触摸事件不触发，检查浏览器控制台
+    `
+  </script>
+</body>
+</html>

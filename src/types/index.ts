@@ -19,9 +19,11 @@ export interface Idea {
   likeCount: number
   commentCount: number
   viewCount: number
+  favoriteCount: number
   createdAt: string
   updatedAt: string
   isLiked: boolean
+  isFavorite?: boolean
 }
 
 // 评论（精简版）

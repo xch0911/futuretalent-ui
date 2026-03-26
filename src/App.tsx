@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Ideas from './pages/Ideas'
+import Recommend from './pages/Recommend'
 import IdeaDetail from './pages/IdeaDetail'
 import IdeaCreate from './pages/IdeaCreate'
 import UserProfile from './pages/UserProfile'
@@ -21,8 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ideas" element={<Ideas />} />
+        <Route path="/recommend" element={<Recommend />} />
         <Route path="/idea/create" element={<IdeaCreate />} />
-        <Route path="/idea/:ideaId" element={<IdeaDetail />} />
+        <Route path="/ideas/:ideaId" element={<IdeaDetail />} />
         <Route path="/user/:userId" element={<UserProfile />} />
         <Route path="/user/edit" element={<UserEdit />} />
         <Route path="/login" element={<Login />} />

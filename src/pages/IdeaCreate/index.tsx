@@ -58,7 +58,7 @@ const IdeaCreate: React.FC = () => {
         tags,
       })
       message.success('发布成功')
-      navigate(`/idea/${idea.id}`)
+      navigate(`/ideas/${idea.id}`)
     } catch (error) {
       console.error('发布失败', error)
       // 不显示错误消息，request.ts 拦截器已经显示了具体错误
