@@ -67,12 +67,48 @@ const IdeaDetail: React.FC = () => {
     }
   }
 
+  // 把平铺的评论列表组装成树形结构
+  const buildCommentTree = (flatComments: CommentType[]): CommentType[] => {
+    const commentMap = new Map<number, CommentType>()
+    const rootComments: CommentType[] = []
+
+    // 第一步：把所有评论放到Map里，方便查找
+    flatComments.forEach(comment => {
+      const commentId = Number(comment.id)
+      commentMap.set(commentId, { ...comment, replies: [] })
+    })
+
+    // 第二步：组装树形结构
+    flatComments.forEach(comment => {
+      const commentId = Number(comment.id)
+      const currentComment = commentMap.get(commentId)!
+      if (comment.parentId) {
+        const parentId = Number(comment.parentId)
+        if (commentMap.has(parentId)) {
+          // 有父评论，放到父评论的replies里
+          const parentComment = commentMap.get(parentId)!
+          if (!parentComment.replies) {
+            parentComment.replies = []
+          }
+          parentComment.replies.push(currentComment)
+          return
+        }
+      }
+      // 没有父评论，是根评论
+      rootComments.push(currentComment)
+    })
+
+    return rootComments
+  }
+
   const loadComments = async () => {
     if (!ideaId) return
     try {
       setCommentsLoading(true)
       const data = await getComments(ideaId)
-      setComments(data)
+      // 组装成树形结构
+      const commentTree = buildCommentTree(data)
+      setComments(commentTree)
     } catch (error) {
       console.error('加载评论失败', error)
     } finally {
