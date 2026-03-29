@@ -23,16 +23,16 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
   // 选择图片后显示裁剪对话框
   const beforeUpload = (file: File): false => {
     const isImage = file.type.startsWith('image/')
-    const isLt5M = file.size / 1024 / 1024 < 5
+    const isLt15M = file.size / 1024 / 1024 < 15
 
     if (!isImage) {
       message.error('只能上传图片文件！')
     }
-    if (!isLt5M) {
-      message.error('图片大小不能超过 5MB！')
+    if (!isLt15M) {
+      message.error('图片大小不能超过 15MB！')
     }
 
-    if (isImage && isLt5M) {
+    if (isImage && isLt15M) {
       // 读取图片文件
       const reader = new FileReader()
       reader.onload = (e) => {

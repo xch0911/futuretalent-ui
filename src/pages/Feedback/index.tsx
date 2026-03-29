@@ -155,8 +155,8 @@ const Feedback: React.FC = () => {
  message.error('只能上传图片')
  return false
  }
- if (file.size > 5 * 1024 * 1024) {
- message.error('不能超过 5MB')
+ if (file.size > 15 * 1024 * 1024) {
+ message.error('不能超过 15MB')
  return false
  }
  if (fileList.length >= 5) {

@@ -26,7 +26,6 @@ const RecommendPage: React.FC = () => {
 
  const [isLoggedIn, setIsLoggedIn] = useState(false)
  const [ideas, setIdeas] = useState<Idea[]>([])
- const [viewedIds, setViewedIds] = useState<Set<number>>(new Set())
  const [currentIndex, setCurrentIndex] = useState(0)
  const [loading, setLoading] = useState(true)
  const [loadingMore, setLoadingMore] = useState(false)
@@ -35,6 +34,7 @@ const RecommendPage: React.FC = () => {
  const [pullDistance, setPullDistance] = useState(0)
 
  const requestLockRef = useRef(false)
+ const viewedIdsRef = useRef<Set<number>>(new Set())
  const clientHeightRef = useRef(0)
  const touchStartYRef = useRef(0)
  const isPullingRef = useRef(false)
@@ -52,13 +52,12 @@ const RecommendPage: React.FC = () => {
  try {
  append ? setLoadingMore(true) : setLoading(true)
  // 传递已看过的ID给后端排除
- const exclude = Array.from(viewedIds).join(',')
+ const exclude = Array.from(viewedIdsRef.current).join(',')
  const res = await getRecommendations(exclude)
 
  if (Array.isArray(res) && res.length > 0) {
  // 记录已看ID
- res.forEach(idea => viewedIds.add(Number(idea.id)))
- setViewedIds(new Set(viewedIds))
+ res.forEach(idea => viewedIdsRef.current.add(Number(idea.id)))
  setIdeas(prev => append ? [...prev, ...res] : res)
  if (!append) {
  setCurrentIndex(0)
@@ -287,7 +286,7 @@ const RecommendPage: React.FC = () => {
  transform: pulling ? `translateY(${pullDistance}px)` : 'none',
  }}
  >
- <Card className={styles.ideaCard} bordered={false}>
+ <Card className={styles.ideaCard} variant="borderless">
  {/* 作者信息：头像+昵称+时间，点击整个区域跳转到个人主页 */}
  <div className={styles.author} onClick={() => idea.author?.id && navigate(`/user/${idea.author.id}` as any)} style={{ cursor: 'pointer' }}>
  <Avatar size={48} src={idea.author?.avatar} />
@@ -299,8 +298,8 @@ const RecommendPage: React.FC = () => {
 
  <h1 className={styles.title}>{idea.title}</h1>
  <div className={styles.tags}>
- {idea.tags?.map(tag => (
- <Tag key={tag}>{tag}</Tag>
+ {idea.tags?.map((tag, index) => (
+ <Tag key={tag + '-' + index}>{tag}</Tag>
  ))}
  </div>
  <div className={styles.content}>

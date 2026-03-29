@@ -38,7 +38,6 @@ const Ideas: React.FC = () => {
 
   useEffect(() => {
     loadTags()
-    loadData()
   }, [])
 
   useEffect(() => {
