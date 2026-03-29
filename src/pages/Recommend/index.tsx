@@ -263,10 +263,16 @@ const RecommendPage: React.FC = () => {
  </div>
  )}
 
- <Spin spinning={loading}>
+ {loading && (
+ <div className={styles.loading}>
+ <Spin size="large" />
+ </div>
+ )}
 
+ {!loading && (
+ <>
  {/* 空状态 */}
- {!loading && ideas.length === 0 && (
+ {ideas.length === 0 && (
  <div className={styles.emptyContainer}>
  <Empty description="暂无推荐" />
  <Button type="primary" onClick={() => loadRecommendations(false)}>
@@ -346,8 +352,8 @@ const RecommendPage: React.FC = () => {
  </div>
  )}
 
-
- </Spin>
+ </>
+ )}
  </div>
  </div>
  </div>
