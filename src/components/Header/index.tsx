@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Input, Button, Avatar, Dropdown, MenuProps, Drawer, message, Divider } from 'antd'
 import { SearchOutlined, UserOutlined, PlusOutlined, MenuOutlined, GithubOutlined, WechatOutlined, WeiboOutlined, MailOutlined } from '@ant-design/icons'
 import { User } from '@/types'
+import logo from '@/assets/futuretalent-logo.jpg'
 import styles from './index.module.css'
 
 const { Header: AntHeader } = Layout
@@ -80,6 +81,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className={styles.content}>
           <Link to="/" className={styles.logo}>
+            <img src={logo} alt="FutureTalent" className={styles.logoImage} />
             <span className={styles.logoText}>未来人才网</span>
           </Link>
 

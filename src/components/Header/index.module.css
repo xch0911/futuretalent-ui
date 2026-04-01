@@ -19,6 +19,14 @@
   align-items: center;
   text-decoration: none;
   margin-right: 48px;
+  gap: 12px;
+}
+
+.logoImage {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: contain;
 }
 
 .logoText {
