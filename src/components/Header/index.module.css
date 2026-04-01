@@ -35,7 +35,8 @@
   font-size: 20px;
   font-weight: 600;
   color: #1890ff;
-  line-height: 40px;
+  line-height: 36px;
+  height: 40px;
 }
 
 .nav {
