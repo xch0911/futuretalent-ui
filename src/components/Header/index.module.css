@@ -20,6 +20,7 @@
   text-decoration: none;
   margin-right: 48px;
   gap: 12px;
+  height: 40px;
 }
 
 .logoImage {
@@ -27,12 +28,14 @@
   width: 40px;
   border-radius: 50%;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logoText {
   font-size: 20px;
   font-weight: 600;
   color: #1890ff;
+  line-height: 40px;
 }
 
 .nav {
