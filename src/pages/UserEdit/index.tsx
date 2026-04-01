@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, Button, Input, Row, Col, Spin, message } from 'antd'
+import { Card, Button, Input, Row, Col, message } from 'antd'
 import AvatarUpload from '@/components/AvatarUpload'
 import { User } from '@/types'
 import { updateUserProfile } from '@/services/user'

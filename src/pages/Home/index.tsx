@@ -19,21 +19,12 @@ const Home: React.FC = () => {
     connectionCount: 0,
   })
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [currentUser, setCurrentUser] = useState<User | null>(null)
 
   // 检查登录状态
   useEffect(() => {
     const token = localStorage.getItem('token')
-    const userStr = localStorage.getItem('user')
-
-    if (token && userStr) {
-      try {
-        const userData = JSON.parse(userStr)
-        setCurrentUser(userData)
-        setIsLoggedIn(true)
-      } catch (e) {
-        console.error('解析用户信息失败', e)
-      }
+    if (token) {
+      setIsLoggedIn(true)
     }
   }, [])
 

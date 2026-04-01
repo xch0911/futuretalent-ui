@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, Avatar, Button, Space } from 'antd'
-import { UserOutlined, UserAddOutlined } from '@ant-design/icons'
+import { Card, Avatar } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 import { User } from '@/types'
 import styles from './index.module.css'
 

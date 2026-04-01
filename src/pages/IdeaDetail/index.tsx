@@ -158,7 +158,6 @@ const IdeaDetail: React.FC = () => {
       return
     }
     try {
-      const oldIsFavorite = isFavorite;
       const oldCount = idea.favoriteCount || 0;
       if (isFavorite) {
         await unfavoriteIdea(idea.id)

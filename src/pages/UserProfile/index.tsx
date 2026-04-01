@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic, Tabs } from 'antd'
+import { Row, Col, Card, Avatar, Button, Spin, Empty, Pagination, Divider, Statistic, Tabs } from 'antd'
 import { UserOutlined, UserAddOutlined, BulbOutlined, EditOutlined, StarOutlined } from '@ant-design/icons'
 import { User, Idea } from '@/types'
 import { getUserInfo, getUserIdeas, followUser, unfollowUser } from '@/services/user'

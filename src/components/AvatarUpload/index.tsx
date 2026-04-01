@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Upload, message, Modal } from 'antd'
+import { Upload, message } from 'antd'
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons'
-import type { UploadFile } from 'antd'
 import AvatarCropper from '@/components/AvatarCropper'
 import styles from './index.module.css'
 

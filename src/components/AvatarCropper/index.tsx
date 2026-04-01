@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { Modal, Slider, message } from 'antd'
 import Cropper from 'react-easy-crop'
-import type { Point, Area } from 'react-easy-crop/types'
+import type { Point, Area } from 'react-easy-crop'
 import styles from './index.module.css'
 
 interface AvatarCropperProps {
@@ -79,7 +79,6 @@ const AvatarCropper: React.FC<AvatarCropperProps> = ({
             cropShape="round"
             showGrid
             restrictPosition
-            allowRotation={false}
             objectFit="contain"
             onCropChange={handleCropChange}
             onCropComplete={handleCropComplete}
