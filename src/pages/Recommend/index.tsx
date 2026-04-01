@@ -6,7 +6,6 @@ import {
  LikeFilled,
  CommentOutlined,
  EyeOutlined,
- ArrowDownOutlined,
  StarOutlined,
  StarFilled,
 } from '@ant-design/icons'
@@ -200,7 +199,7 @@ const RecommendPage: React.FC = () => {
  // 达到触发距离，开始刷新
  if (pullDistance >= TRIGGER_DISTANCE && !loading && !requestLockRef.current) {
   // 下拉刷新重置已读列表
-  setViewedIds(new Set())
+  viewedIdsRef.current = new Set()
   setIdeas([])
   loadRecommendations(false)
  } else {
@@ -282,7 +281,7 @@ const RecommendPage: React.FC = () => {
  )}
 
  {/* 所有想法都渲染，每个占一屏（CSS 控制 scroll-snap） */}
- {ideas.map((idea, index) => (
+ {ideas.map((idea, _index) => (
  <div
  key={idea.id}
  className={styles.cardWrapper}

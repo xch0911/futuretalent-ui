@@ -291,7 +291,7 @@ const IdeaDetail: React.FC = () => {
       await createReport({
         reportType: 'other',
         targetType: 'idea',
-        targetId: idea.id,
+        targetId: Number(idea.id),
         description: reportDescription.trim(),
       })
       message.success('举报提交成功，我们会尽快处理')
@@ -381,7 +381,7 @@ const IdeaDetail: React.FC = () => {
               </Space>
             </Col>
             <Col xs={24} sm={12} md={8} lg={6} style={{ textAlign: 'right' }}>
-              <Space size={8} align="middle">
+              <Space size={8} align="center">
                 {/* 自己的内容不显示举报按钮 */}
                 {!isCurrentUser && (
                   <Button

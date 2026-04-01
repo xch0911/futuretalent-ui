@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic, message, Tabs } from 'antd'
+import { Row, Col, Card, Avatar, Button, Tag, Spin, Empty, Pagination, Divider, Statistic, Tabs } from 'antd'
 import { UserOutlined, UserAddOutlined, BulbOutlined, EditOutlined, StarOutlined } from '@ant-design/icons'
 import { User, Idea } from '@/types'
 import { getUserInfo, getUserIdeas, followUser, unfollowUser } from '@/services/user'
@@ -132,7 +132,7 @@ const UserProfile: React.FC = () => {
         if (userInfo) {
           setUserInfo({
             ...userInfo,
-            followerCount: userInfo.followerCount - 1,
+            followerCount: (userInfo.followerCount ?? 0) - 1,
           })
         }
       } else {
@@ -141,7 +141,7 @@ const UserProfile: React.FC = () => {
         if (userInfo) {
           setUserInfo({
             ...userInfo,
-            followerCount: userInfo.followerCount + 1,
+            followerCount: (userInfo.followerCount ?? 0) + 1,
           })
         }
       }
@@ -190,13 +190,6 @@ const UserProfile: React.FC = () => {
               <Avatar size={120} src={userInfo.avatar} icon={<UserOutlined />} />
               <h1 className={styles.name}>{userInfo.nickname}</h1>
               <p className={styles.bio}>{userInfo.bio || '这个人很懒，什么都没写~'}</p>
-              {userInfo.tags && userInfo.tags.length > 0 && (
-                <div className={styles.tags}>
-                  {userInfo.tags.map(tag => (
-                    <Tag key={tag}>{tag}</Tag>
-                  ))}
-                </div>
-              )}
               {isOwnProfile ? (
                 <Button
                   type="primary"
@@ -228,13 +221,10 @@ const UserProfile: React.FC = () => {
                   <Statistic title="想法" value={userInfo.ideaCount} prefix={<BulbOutlined />} />
                 </Col>
                 <Col span={8}>
-                  <Statistic title="关注者" value={userInfo.followerCount} prefix={<UserAddOutlined />} />
+                  <Statistic title="关注者" value={userInfo.followerCount ?? 0} prefix={<UserAddOutlined />} />
                 </Col>
                 <Col span={8}>
-                  <Statistic title="关注了" value={userInfo.followingCount} />
-                </Col>
-                <Col span={8}>
-                  <Statistic title="收藏" value={userInfo.favoriteCount || 0} prefix={<StarOutlined />} />
+                  <Statistic title="关注了" value={userInfo.followingCount ?? 0} />
                 </Col>
               </Row>
             </div>

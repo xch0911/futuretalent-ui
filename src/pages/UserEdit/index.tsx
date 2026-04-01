@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Card, Button, Input, Avatar, Row, Col, Spin, message } from 'antd'
-import { UserOutlined } from '@ant-design/icons'
+import { Card, Button, Input, Row, Col, Spin, message } from 'antd'
 import AvatarUpload from '@/components/AvatarUpload'
 import { User } from '@/types'
 import { updateUserProfile } from '@/services/user'
@@ -11,7 +10,6 @@ const { TextArea } = Input;
 
 const UserEdit: React.FC = () => {
   const navigate = useNavigate()
-  const [loading, setLoading] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [nickname, setNickname] = useState('')
@@ -49,7 +47,6 @@ const UserEdit: React.FC = () => {
       await updateUserProfile(String(currentUser.id), {
         nickname: nickname.trim(),
         bio: bio.trim(),
-        tags: [],
       })
 
       // 更新本地存储
@@ -57,7 +54,6 @@ const UserEdit: React.FC = () => {
         ...currentUser,
         nickname: nickname.trim(),
         bio: bio.trim(),
-        tags: [],
       }
       localStorage.setItem('user', JSON.stringify(updatedUser))
       message.success('更新成功')
@@ -70,14 +66,6 @@ const UserEdit: React.FC = () => {
     } finally {
       setSubmitting(false)
     }
-  }
-
-  if (loading) {
-    return (
-      <div className={styles.loading}>
-        <Spin size="large" />
-      </div>
-    )
   }
 
   return (

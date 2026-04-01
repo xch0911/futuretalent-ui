@@ -72,6 +72,14 @@
 
 .tags {
   margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  row-gap: 8px;
+}
+
+.tags :global(.ant-tag) {
+  margin: 0 !important;
 }
 
 .content {

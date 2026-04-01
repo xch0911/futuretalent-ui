@@ -49,11 +49,16 @@
 
 .tags {
   margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  row-gap: 8px;
 }
 
 .tag {
   cursor: pointer;
   transition: all 0.3s;
+  margin: 0 !important;
 }
 
 .tag:hover {
