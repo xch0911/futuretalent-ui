@@ -1,1 +1,22 @@
-{"rewrites": [{"source": "/(.*)", "destination": "/index.html"}], "headers": [{"source": "/api/(.*)", "headers": [{"key": "Access-Control-Allow-Origin", "value": "https://www.ideepgeo.com"}, {"key": "Access-Control-Allow-Credentials", "value": "true"}]}, "bodySize": {"limit": "20mb"}}
+{
+ "rewrites": [
+  // 1. 必须优先放行 API（顺序不能变！）
+  { "source": "/api/(.*)", "destination": "/api/$1" },
+  // 2. 剩下所有路由给前端 SPA
+  { "source": "/(.*)", "destination": "/index.html" }
+ ],
+ "headers": [
+  {
+   "source": "/api/(.*)",
+   "headers": [
+    { "key": "Access-Control-Allow-Origin", "value": "https://www.ideepgeo.com" },
+    { "key": "Access-Control-Allow-Credentials", "value": "true" },
+    { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE,OPTIONS" },
+    { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" }
+   ]
+  }
+ ],
+ "bodySize": {
+  "limit": "20mb"
+ }
+}
