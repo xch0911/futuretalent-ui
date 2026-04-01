@@ -139,7 +139,7 @@ const UserEdit: React.FC = () => {
             </div>
           </Card>
 
-          <Card title="🌱 个人成长评价体系" className={[styles.card, styles.growthCard]}>
+          <Card title="🌱 个人成长评价体系" className={`${styles.card} ${styles.growthCard}`}>
             <div className={styles.guideSection}>
               <ul>
                 <li>优质内容获得点赞收藏，增加成长值</li>

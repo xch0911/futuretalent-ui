@@ -3,8 +3,6 @@ import { Collapse, Card } from 'antd'
 import { QuestionCircleOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
 
-const { Panel } = Collapse
-
 const FAQ: React.FC = () => {
   const faqData = [
     {
