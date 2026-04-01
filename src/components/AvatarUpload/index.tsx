@@ -53,7 +53,9 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
       formData.append('file', croppedBlob, 'avatar.jpg')
 
       // 上传到服务器
-      const response = await fetch(`/api/users/${userId}/avatar`, {
+      const apiUrl = import.meta.env.VITE_API_BASE_URL || '';
+      const url = `${apiUrl}/users/${userId}/avatar`;
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
