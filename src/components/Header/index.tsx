@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Layout, Input, Button, Avatar, Dropdown, MenuProps, Drawer, message, Divider } from 'antd'
 import { SearchOutlined, UserOutlined, PlusOutlined, MenuOutlined, GithubOutlined, WechatOutlined, WeiboOutlined, MailOutlined } from '@ant-design/icons'
 import { User } from '@/types'
-import logo from '@/assets/futuretalent-logo.jpg'
+import logo from '@/assets/futuretalent-logo.png'
 import styles from './index.module.css'
 
 const { Header: AntHeader } = Layout
